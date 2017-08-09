@@ -17,6 +17,9 @@ void InputManager::run(Camara * camara){
             case SDL_QUIT:
                 SDL_Quit();
                 break;
+            case SDL_MOUSEMOTION:
+                checkMouse(event.motion.x, event.motion.y);
+                break;
             case SDL_KEYDOWN:
                 std::cout<<"Se apreto tecla: "<<event.key.keysym.scancode<<std::endl;
                 teclas[event.key.keysym.scancode] = true;

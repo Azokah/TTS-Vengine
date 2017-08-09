@@ -47,7 +47,7 @@ void Game::run()
 void Game::update()
 {
     in->run(camara);
-    //camara->update();
+    camara->update();
 };
 void Game::dibujar(){
     //mapa
@@ -76,6 +76,18 @@ void Game::input(int tecla, bool estadoTecla){
     case SDL_SCANCODE_ESCAPE:
         if (estadoTecla) estado = TERMINADO;
         break;
+    case SDL_SCANCODE_RIGHT:
+        camara->goRight();
+        break;
+    case SDL_SCANCODE_LEFT:
+        camara->goLeft();
+        break;
+    case SDL_SCANCODE_UP:
+        camara->goUp();
+        break;
+    case SDL_SCANCODE_DOWN:
+        camara->goDown();
+        break;
     }
 };
 void Game::inputMouse(int tecla, int X, int Y)
@@ -102,7 +114,7 @@ void Game::selectEntidades(int X,int Y){
 void Game::bindearInput(){
     in->signalTecla.connect(boost::bind(&Game::input, this, _1, _2));
     in->signalBoton.connect(boost::bind(&Game::inputMouse, this, _1, _2, _3));
-    
+    in->checkMouse.connect(boost::bind(&Camara::checkMouse, camara,_1, _2));
 };
 
 //Crear clase resource manager:

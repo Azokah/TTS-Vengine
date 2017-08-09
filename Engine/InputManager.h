@@ -20,6 +20,7 @@ class InputManager { //: public Signal //Aplica interfaz Signal{
 
         boost::signals2::signal<void (int,bool)> signalTecla;
         boost::signals2::signal<void (int,int,int)> signalBoton; // Quizas deberia hacer interfaz
+        boost::signals2::signal<void (int,int)> checkMouse;
     private:
         InputManager();
 
