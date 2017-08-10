@@ -29,8 +29,8 @@
 //Camara
 #define CAMARA_W PANTALLA_AN
 #define CAMARA_H PANTALLA_AL
-#define CAMARA_SPEED 16
-#define CAMARA_BORDE 16
+#define CAMARA_SPEED 2
+#define CAMARA_BORDE 32
 
 
 

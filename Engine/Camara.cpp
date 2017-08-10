@@ -29,6 +29,10 @@ void Camara::setY(int Y){ y = Y;};
 
 void Camara::update() {
 	
+	goUp();
+	goDown();
+	goLeft();
+	goRight();
 
 	 if(x > ((TILE_W*MAPA_W) - w)){
 	 	x = ((TILE_W*MAPA_W)-w);
@@ -63,13 +67,19 @@ void Camara::update(int nx, int ny) {
 
 void Camara::checkMouse(int x, int y){
 	if ( x < CAMARA_BORDE ){
-		goLeft();
+		left = true;
 	}else if( x > CAMARA_W - CAMARA_BORDE){
-		goRight();
-	}else if( y < CAMARA_BORDE){
-		goUp();
+		right = true;
+	}else {
+		left = right = false;
+	}
+	
+	if( y < CAMARA_BORDE){
+		up = true;
 	}else if( y > CAMARA_H - CAMARA_BORDE){
-		goDown();
+		down = true;
+	}else{
+		up = down = false;
 	}
 };
 void Camara::goUp(){
