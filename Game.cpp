@@ -29,10 +29,25 @@ Game::Game()
     */
     bindearInput();
 
+    setUP();
     estado = CORRIENDO;
 };
 Game::~Game(){
 };
+
+void Game::setUP(){
+    int players;
+    std::string nombre;
+    do{
+        std::cout<<"Ingrese el numero de jugadores: ";
+        std::cin>>players;
+    }while(players <= 0 && players >= 4);
+    for(int i = 0; i < players; i++){
+        std::cout<<"Ingrese el nombre del jugador numero "<<i<<":";
+        std::cin>>nombre;
+        jugadores.push_back(new Jugador(nombre,100));
+    }
+}
 
 void Game::run()
 {
@@ -55,12 +70,14 @@ void Game::dibujar(){
     for (int i = 0; i < MAPA_H; i++){
         for (int j = 0; j < MAPA_W; j++){
             renderComp->renderizar(j * TILE_W, i * TILE_H, TILE_W, TILE_H, mapa->sprite->getFrame(), camara);
-            } 
-        }
-        for (int i = 0; i < MAPA_H; i++){
-            for (int j = 0; j < MAPA_W; j++){
-                } 
+            //Estructuras
+            for(int o = 0; o < mapa->estructuras.size(); o++){
+                if(mapa->estructuras.at(o)->getX() == j && mapa->estructuras.at(o)->getY() == i)
+                renderComp->renderizar(j * TILE_W, i * TILE_H, TILE_W, TILE_H, mapa->estructuras.at(o)->sprite->getFrame(), camara);
             }
+        } 
+    }
+
     dibujarTop();
     
 

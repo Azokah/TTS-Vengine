@@ -4,7 +4,7 @@
 Musica::Musica(void)
 {
 	musica = NULL;
-	volumen = 100;
+	volumen = 1;
 	init();
 }
 

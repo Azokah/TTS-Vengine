@@ -1,8 +1,10 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
 #include "../Engine/Sprite.h"
 #include "../Constantes.h"
+#include "Unidad.h"
 #include "IEntidad.h"
 
 class Estructura : public IEntidad {
@@ -35,6 +37,7 @@ class Estructura : public IEntidad {
 
         Sprite * sprite;
 
+        std::vector<Unidad *> unidadesGuarecidas;
 
     private:
         std::string name,description;

@@ -46,6 +46,6 @@
 
 
 //AUDIO
-#define AUDIO_HZ 22050
+#define AUDIO_HZ 44100
 #define AUDIO_CHANNELS 2
 #define AUDIO_CHUNK_SIZE 4096

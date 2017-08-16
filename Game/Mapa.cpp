@@ -8,6 +8,9 @@ Mapa::Mapa(SDL_Renderer * RENDER){
         for(int j = 0; j < MAPA_W; j++)
             mapa[i][j] = 0;
     
+    estructuras.push_back(new Castillo("Casterly Rock","The original Lannister's castle",5000,100,500,10,10));
+    estructuras.push_back(new Castillo("Rocksterly Cast","The non-original Lannister's castle",5000,100,500,20,25));
+    estructuras.push_back(new Aldea("Casterly","The original Lannister's aldea",500,50,100,15,18));
 };
 Mapa::~Mapa(){};
 

@@ -19,6 +19,7 @@
 #include "Game/Caballeria.h"
 #include "Game/Castillo.h"
 #include "Game/Aldea.h"
+#include "Game/Jugador.h"
 
 
 enum game_estado{
@@ -47,6 +48,8 @@ class Game {
         void bindearInput();
         void selectEntidades(int,int);
 
+        void setUP();
+
 
         //Engine
         SDLManager * sdl;
@@ -58,6 +61,7 @@ class Game {
         Timer * timer;
 
         //Game
+        std::vector<Jugador *> jugadores;
         Mapa * mapa;
         
 };
