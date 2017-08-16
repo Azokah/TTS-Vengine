@@ -42,3 +42,18 @@ void Ejercito::addUnidad(Unidad * unidad){
     speed = speed/size;
     damage = damage/size;
 }
+
+
+void Ejercito::lucharCon(Ejercito *){
+
+};
+void Ejercito::unirseA(Ejercito *){
+
+};
+void Ejercito::vigilarA(Ejercito *){
+
+};
+void Ejercito::seguirA(Ejercito *){
+
+};
+void Ejercito::esperar(){};

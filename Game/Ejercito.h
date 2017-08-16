@@ -7,6 +7,13 @@
 #include "IEntidad.h"
 #include "Unidad.h"
 
+enum estado{
+    ATACANDO,
+    DEFENDIENDO,
+    ESPERANDO,
+    CAMINANDO
+};
+
 class Ejercito : public IEntidad {
     public:
         Ejercito(Unidad * unidad);
@@ -26,12 +33,15 @@ class Ejercito : public IEntidad {
 
         std::vector<Unidad *> unidades;
 
+        void lucharCon(Ejercito *);
+        void unirseA(Ejercito *);
+        void vigilarA(Ejercito *);
+        void seguirA(Ejercito *);
+        void esperar();
+
     private:
         int size;
         float speed, fort, damage;
 
         int x, y, xd, yd;
-
-        
-
 };

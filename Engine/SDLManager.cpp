@@ -57,3 +57,25 @@ void SDLManager::drawFPS(){
 	sprintf(txt,"FPS: %.0f",FPSMAX);
 	imprimirTexto(txt,25,50,255,0,125);
 };
+
+void SDLManager::takeScreenshot(){
+
+    /*char * path;
+    sprintf(path,"%d .bmp",timer->get_ticks());*/
+    
+    // Create an empty RGB surface that will be used to create the screenshot bmp file
+SDL_Surface* pScreenShot = SDL_CreateRGBSurface(0, PANTALLA_AN, PANTALLA_AL, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
+
+   if(pScreenShot)
+   {
+      // Read the pixels from the current render target and save them onto the surface
+      SDL_RenderReadPixels(render, NULL, SDL_GetWindowPixelFormat(ventana), pScreenShot->pixels, pScreenShot->pitch);
+
+      // Create the bmp screenshot file
+      SDL_SaveBMP(pScreenShot, "Screenshots.bmp");
+
+      // Destroy the screenshot surface
+      SDL_FreeSurface(pScreenShot);
+   }
+
+}

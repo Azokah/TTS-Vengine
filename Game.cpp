@@ -109,6 +109,9 @@ void Game::input(int tecla, bool estadoTecla){
     case SDL_SCANCODE_DOWN:
         camara->goDown();
         break;
+    case SDL_SCANCODE_INSERT:
+        sdl->takeScreenshot();
+        break;
     }
 };
 void Game::inputMouse(int tecla, int X, int Y)
