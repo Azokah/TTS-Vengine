@@ -5,7 +5,7 @@
 
 int main(int argc, char * argv[]){
 
-    std::cout<<"Iniciando Quest..."<<std::endl;
+    std::cout<<"Iniciando V-Engine..."<<std::endl;
     Game * game = &game->getInstance();
     game->run();
 

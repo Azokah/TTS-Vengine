@@ -13,6 +13,8 @@
 #include "Engine/Musica.h"
 #include "Engine/Timer.h"
 #include "Game/Mapa.h"
+#include "Game/Ejercito.h"
+#include "Game/Infanteria.h"
 
 
 enum game_estado{
@@ -53,4 +55,5 @@ class Game {
 
         //Game
         Mapa * mapa;
+        
 };

@@ -24,7 +24,7 @@ Game::Game()
     mapa = new Mapa(sdl->getRender());
     /* 
     * Problemas principales:
-            Una entidad deberia poseer los metodos getX y getY, ya que una entidad tiene posicion.
+            Sprite deberia tener la textura de Missing texture de forma automatica.
     */
     bindearInput();
 
@@ -56,7 +56,7 @@ void Game::dibujar(){
             renderComp->renderizar(j * TILE_W, i * TILE_H, TILE_W, TILE_H, mapa->sprite->getFrame(), camara);
             } 
         }
-    
+
     dibujarTop();
     
 

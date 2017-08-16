@@ -5,11 +5,11 @@
 #include "../Constantes.h"
 #include "../Engine/Sprite.h"
 #include "IEntidad.h"
-#include "Unidades.h"
+#include "Unidad.h"
 
 class Ejercito : public IEntidad {
     public:
-        Ejercito();
+        Ejercito(Unidad * unidad);
         ~Ejercito();
 
         virtual void update();
@@ -20,7 +20,11 @@ class Ejercito : public IEntidad {
         virtual void setXD(int);
         virtual void setYD(int);
 
+        void addUnidad(Unidad * unidad);
+
         Sprite * sprite;
+
+        std::vector<Unidad *> unidades;
 
     private:
         int size;
@@ -28,6 +32,6 @@ class Ejercito : public IEntidad {
 
         int x, y, xd, yd;
 
-        std::vector<Unidad *> unidades;
+        
 
 };
