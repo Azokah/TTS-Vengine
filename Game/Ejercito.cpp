@@ -20,6 +20,7 @@ void Ejercito::moveTo(int XD,int YD){
     setYD(YD);
 };
 void Ejercito::move(){
+    //TODO
     if( xd != x || yd != y){
         x = xd;
         y = yd;
