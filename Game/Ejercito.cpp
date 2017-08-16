@@ -32,4 +32,12 @@ void Ejercito::setXD(int XD){ xd = XD;};
 void Ejercito::addUnidad(Unidad * unidad){
     unidades.push_back(unidad);
     size = unidades.size();
+    speed = 0;
+    damage = 0;
+    for(int i = 0; i<size; i++){
+        speed += unidades.at(i)->getSpeed();
+        damage += unidades.at(i)->getDamage();
+    }
+    speed = speed/size;
+    damage = damage/size;
 }
