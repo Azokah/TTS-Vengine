@@ -22,7 +22,6 @@ Game::Game()
     //Inicializar elementos game
     
     mapa = new Mapa(sdl->getRender());
-    estructura = new Estructura("Nothingham","La capital de tu vieja",1,1,1,1,1);
 
     /* 
     * Problemas principales:
@@ -60,8 +59,6 @@ void Game::dibujar(){
         }
         for (int i = 0; i < MAPA_H; i++){
             for (int j = 0; j < MAPA_W; j++){
-                if(i == estructura->getY() && j == estructura->getX())
-                renderComp->renderizar(j * TILE_W, i * TILE_H, TILE_W, TILE_H, estructura->sprite->getFrame(), camara);
                 } 
             }
     dibujarTop();

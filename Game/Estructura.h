@@ -8,20 +8,27 @@
 class Estructura : public IEntidad {
     public:
         
-        virtual ~Estructura();
+        virtual ~Estructura(){};
 
-        virtual void update();
-        virtual void moveTo(int,int);
-        virtual void move();
+        virtual void update() = 0; // Metodo inexistente para Estructuras
+        virtual void moveTo(int,int);// Metodo inexistente para Estructuras pero con cuerpo
+        virtual void move();// Metodo inexistente para Estructuras pero con cuerpo
         virtual int getX();
         virtual int getY();
-        virtual void setXD(int);
-        virtual void setYD(int);
+        virtual void setXD(int);// Metodo inexistente para Estructuras pero con cuerpo
+        virtual void setYD(int);// Metodo inexistente para Estructuras pero con cuerpo
 
+        void setX(int);
+        void setY(int);
+
+        std::string getName();
+        std::string getDesc();
         int getHP();
         int getDef();
         int getSize();
 
+        void setName(std::string);
+        void setDesc(std::string);
         void setHP(int);
         void setDef(int);
         void setSize(int);
