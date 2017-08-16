@@ -15,6 +15,10 @@
 #include "Game/Mapa.h"
 #include "Game/Ejercito.h"
 #include "Game/Infanteria.h"
+#include "Game/Arqueros.h"
+#include "Game/Caballeria.h"
+#include "Game/Castillo.h"
+#include "Game/Aldea.h"
 
 
 enum game_estado{

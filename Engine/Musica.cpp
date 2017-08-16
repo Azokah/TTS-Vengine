@@ -4,7 +4,7 @@
 Musica::Musica(void)
 {
 	musica = NULL;
-	volumen = 1;
+	volumen = 100;
 	init();
 }
 
@@ -20,7 +20,7 @@ void Musica::init()
 		std::cout << "No se cargo el audio" << std::endl;
 	}
 
-	musica = Mix_LoadMUS("Assets/Musica/Mapa_x.mp3");
+	musica = Mix_LoadMUS("Assets/Musica/MainTheme.mp3");
 	if(musica == NULL)
 	{
 		getError("No se pudo cargar la Musica.");

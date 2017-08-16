@@ -1,1 +1,1 @@
-g++ -w *.cpp Engine/*.cpp Game/*.cpp -o quest.out -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2 && ./quest.out
+g++ -w *.cpp Engine/*.cpp Game/*.cpp -o tts.out -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2 && ./tts.out
