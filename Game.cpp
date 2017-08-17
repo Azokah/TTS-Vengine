@@ -116,9 +116,9 @@ void Game::input(int tecla, bool estadoTecla){
 };
 void Game::inputMouse(int tecla, int X, int Y)
 {
-    switch (tecla)
-    {
-    case SDL_BUTTON_LEFT:
+    switch (tecla){
+        case SDL_BUTTON_LEFT:
+        selectEntidades(X,Y);
         break;
     }
 };
@@ -133,6 +133,12 @@ void Game::selectEntidades(int X,int Y){
     for(int o = 0; o < mapa->objetos.size(); o++){
         if(mapa->objetos.at(o)->getX() == X/32  && mapa->objetos.at(o)->getY() == Y/32) hud->setObjetivo(mapa->objetos.at(o));
     }*/
+
+    for(int i = 0; i < mapa->estructuras.size(); i++){
+        if(mapa->estructuras.at(i)->sprite->inBounds(X,Y)) std::cout<<"Seleccionada estructura: "<<i<<std::endl;
+    }
+
+    std::cout<<"Click"<<std::endl;
 };
 
 void Game::bindearInput(){

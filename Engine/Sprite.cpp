@@ -66,3 +66,13 @@ void Sprite::stop(){
 };
 
 void Sprite::setVelocidad(int x){ velocidadAnimacion = x;};
+
+bool Sprite::inBounds(int X, int Y){
+	if(X >= frames[0].at(frame).x && X <= frames[0].at(frame).x+frames[0].at(frame).w){
+		if(Y >= frames[0].at(frame).y && Y <= frames[0].at(frame).y+frames[0].at(frame).h){
+			return true;
+		}else return false;
+	} else return false;
+};
+
+

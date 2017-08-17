@@ -60,22 +60,10 @@ void SDLManager::drawFPS(){
 
 void SDLManager::takeScreenshot(){
 
-    /*char * path;
-    sprintf(path,"%d .bmp",timer->get_ticks());*/
-    
-    // Create an empty RGB surface that will be used to create the screenshot bmp file
-SDL_Surface* pScreenShot = SDL_CreateRGBSurface(0, PANTALLA_AN, PANTALLA_AL, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
-
-   if(pScreenShot)
-   {
-      // Read the pixels from the current render target and save them onto the surface
-      SDL_RenderReadPixels(render, NULL, SDL_GetWindowPixelFormat(ventana), pScreenShot->pixels, pScreenShot->pitch);
-
-      // Create the bmp screenshot file
-      SDL_SaveBMP(pScreenShot, "Screenshots.bmp");
-
-      // Destroy the screenshot surface
-      SDL_FreeSurface(pScreenShot);
-   }
+    SDL_Surface *sshot = SDL_CreateRGBSurface(0, PANTALLA_AN, PANTALLA_AL, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
+    SDL_RenderReadPixels(render, NULL, SDL_PIXELFORMAT_ARGB8888, sshot->pixels, sshot->pitch);
+    SDL_SaveBMP(sshot, "screenshot.bmp");
+    std::cout<<"Screenshot taken!"<<std::endl;
+    SDL_FreeSurface(sshot);
 
 }

@@ -29,6 +29,8 @@ class Sprite {
 
         void setVelocidad(int);
 
+        bool inBounds(int,int);
+
     private:
         vector<SDL_Rect> frames[DIRECCIONES];
         int frame, direction;
