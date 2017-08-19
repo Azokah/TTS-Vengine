@@ -9,6 +9,7 @@ Aldea::Aldea(std::string NAME,std::string DESC,int HP,int DEFENSE,int SIZE, int 
     setSize(SIZE);
     setX(X);
     setY(Y);
+    setOwner(NULL);
 
     sprite = new Sprite();
     sprite->agregarFrame(TILE_W*2,TILE_H,TILE_W*2,TILE_H*2);

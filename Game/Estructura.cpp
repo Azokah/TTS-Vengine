@@ -23,3 +23,18 @@ void Estructura::moveTo(int X,int Y){/*Castles dont move*/};
 void Estructura::move(){/*Castles dont move;*/};
 void Estructura::setXD(int X){ /* Castles dont move*/};
 void Estructura::setYD(int Y){/* Castles dont move*/};
+
+
+bool Estructura::inBounds(int X, int Y){
+    if(X == x  && Y == y){
+			return true;
+	} else return false;
+};
+
+
+void Estructura::setOwner(Jugador * OWNER){
+	owner = OWNER;
+};
+Jugador* Estructura::getOwner(){
+	return owner;
+};

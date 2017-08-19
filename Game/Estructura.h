@@ -6,6 +6,8 @@
 #include "../Constantes.h"
 #include "Unidad.h"
 #include "IEntidad.h"
+#include "Jugador.h"
+
 
 class Estructura : public IEntidad {
     public:
@@ -19,6 +21,11 @@ class Estructura : public IEntidad {
         virtual int getY();
         virtual void setXD(int);// Metodo inexistente para Estructuras pero con cuerpo
         virtual void setYD(int);// Metodo inexistente para Estructuras pero con cuerpo
+        
+        virtual bool inBounds(int,int);
+
+        virtual void setOwner(Jugador * OWNER);
+        virtual Jugador* getOwner();
 
         void setX(int);
         void setY(int);
@@ -34,13 +41,18 @@ class Estructura : public IEntidad {
         void setHP(int);
         void setDef(int);
         void setSize(int);
+        
 
         Sprite * sprite;
 
         std::vector<Unidad *> unidadesGuarecidas;
 
+
+
     private:
         std::string name,description;
         int hp, defense, size;
         int x, y;
+
+        Jugador * owner;
 };

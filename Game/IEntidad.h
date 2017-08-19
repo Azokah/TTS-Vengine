@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Jugador.h"
 #include "../Constantes.h"
 
-/* Entidades no se instancian, necesita sprite? */
 
 
 class IEntidad {
@@ -17,6 +17,9 @@ class IEntidad {
         virtual int getY() = 0;
         virtual void setXD(int) = 0;
         virtual void setYD(int) = 0;
+        virtual bool inBounds(int,int) = 0;
+        virtual void setOwner(Jugador *);
+        virtual Jugador* getOwner();
         //cvirtual void 
 
 };

@@ -47,6 +47,14 @@ void Game::setUP(){
         std::cin>>nombre;
         jugadores.push_back(new Jugador(nombre,100));
     }
+
+    std::cout<<"Estructuras sin dueño existentes en el mapa: "<<std::endl;
+    for(int i = 0; i < mapa->estructuras.size();i++)
+    {
+        if(mapa->estructuras.at(i)->getOwner() == NULL){
+            std::cout<<mapa->estructuras.at(i)->getName()<<std::endl;
+        }
+    }
 }
 
 void Game::run()
@@ -133,12 +141,11 @@ void Game::selectEntidades(int X,int Y){
     for(int o = 0; o < mapa->objetos.size(); o++){
         if(mapa->objetos.at(o)->getX() == X/32  && mapa->objetos.at(o)->getY() == Y/32) hud->setObjetivo(mapa->objetos.at(o));
     }*/
-
+    X=X/TILE_W;
+    Y=Y/TILE_W;
     for(int i = 0; i < mapa->estructuras.size(); i++){
-        if(mapa->estructuras.at(i)->sprite->inBounds(X,Y)) std::cout<<"Seleccionada estructura: "<<i<<std::endl;
+        if(mapa->estructuras.at(i)->inBounds(X,Y)) std::cout<<"Seleccionada estructura: "<<i<<std::endl;
     }
-
-    std::cout<<"Click"<<std::endl;
 };
 
 void Game::bindearInput(){

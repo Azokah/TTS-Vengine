@@ -7,6 +7,14 @@ void Unidad::setHP(int HP){hp=HP;};
 void Unidad::setDamage(int DAMAGE){damage=DAMAGE;};
 void Unidad::setDefense(int DEFENSE){defense=DEFENSE;};
 void Unidad::setRange(int RANGE){range=RANGE;};
+void Unidad::setOwner(Jugador * OWNER){
+	owner = OWNER;
+};
+Jugador* Unidad::getOwner(){
+	return owner;
+};
+
+
 
 std::string Unidad::getName(){return name;};
 std::string Unidad::getDescription(){return description;};

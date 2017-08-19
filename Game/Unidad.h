@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Jugador.h"
 #include "../Constantes.h"
 
 class Unidad {
@@ -15,6 +16,8 @@ class Unidad {
         void setDamage(int DAMAGE);
         void setDefense(int DEFENSE);
         void setRange(int RANGE);
+        virtual void setOwner(Jugador * OWNER);
+        virtual Jugador* getOwner();
 
         std::string getName();
         std::string getDescription();
@@ -28,5 +31,5 @@ class Unidad {
         std::string name,description; 
         float speed;
         int hp, damage, defense, range;
-
+        Jugador * owner;
 };

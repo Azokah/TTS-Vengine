@@ -19,21 +19,17 @@ class Sprite {
         void run();
         void stop();
         void play();
-        void play(int dir);
 
-        void agregarFrame(SDL_Rect, int);
         void agregarFrame(int,int,int,int);
         void agregarFrame(int,int,int,int,int);
         SDL_Rect* getFrame();
         SDL_Rect* getFrameDir();
 
         void setVelocidad(int);
-
-        bool inBounds(int,int);
-
+        
     private:
-        vector<SDL_Rect> frames[DIRECCIONES];
-        int frame, direction;
+        vector<SDL_Rect> frames;
+        int frame;
         Timer * timer;
         int lastTick;
         bool playing;

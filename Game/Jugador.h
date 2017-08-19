@@ -1,9 +1,9 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include <vector>
 #include "../Constantes.h"
-#include "Ejercito.h"
-#include "Estructura.h"
+
 
 
 class Jugador {
@@ -11,10 +11,7 @@ class Jugador {
         Jugador(std::string,int);
         ~Jugador();
 
-
-        std::vector<Ejercito *> ejercitos;
-        std::vector<Estructura  *>  estructuras;
-
+        std::string getName();
         
     private:
         std::string name;

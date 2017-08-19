@@ -2,7 +2,6 @@
 
 Sprite::Sprite(){
     frame = 0;
-    direction = 0;
     timer = new Timer();
     timer->start();
     lastTick = timer->get_ticks();
@@ -16,16 +15,13 @@ void Sprite::run(){
     if(playing){
         if(timer->get_ticks() > lastTick + velocidadAnimacion){
             lastTick = timer->get_ticks();
-            if(frame+1 < frames[direction].size()) frame++;
+            if(frame+1 < frames.size()) frame++;
             else frame = 0;
         }
     }
     
 };
 
-void Sprite::agregarFrame(SDL_Rect rect,int dir){
-    frames[dir].push_back(rect);
-};
 void Sprite::agregarFrame(int x, int y, int w ,int h)
 {
     SDL_Rect rect;
@@ -33,7 +29,7 @@ void Sprite::agregarFrame(int x, int y, int w ,int h)
     rect.y = y;
     rect.w = w;
     rect.h = h;
-    frames[0].push_back(rect);
+    frames.push_back(rect);
 }
 void Sprite::agregarFrame(int x, int y, int w ,int h, int dir)
 {
@@ -42,37 +38,25 @@ void Sprite::agregarFrame(int x, int y, int w ,int h, int dir)
     rect.y = y;
     rect.w = w;
     rect.h = h;
-    frames[dir].push_back(rect);
+    frames.push_back(rect);
 }
 
 SDL_Rect* Sprite::getFrame(){
-    return &frames[0].at(frame);
+    return &frames.at(frame);
 };
 SDL_Rect* Sprite::getFrameDir(){
-    return &frames[direction].at(frame);
+    return &frames.at(frame);
 };
 
 void Sprite::play(){
     playing = true;
-    direction = 0;
 };
-void Sprite::play(int dir){
-     playing = true;
-     direction = dir;
-};
+
 void Sprite::stop(){
     playing = false;
     frame = 0;
 };
 
 void Sprite::setVelocidad(int x){ velocidadAnimacion = x;};
-
-bool Sprite::inBounds(int X, int Y){
-	if(X >= frames[0].at(frame).x && X <= frames[0].at(frame).x+frames[0].at(frame).w){
-		if(Y >= frames[0].at(frame).y && Y <= frames[0].at(frame).y+frames[0].at(frame).h){
-			return true;
-		}else return false;
-	} else return false;
-};
 
 

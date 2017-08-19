@@ -42,6 +42,10 @@
         "istream": "cpp",
         "ostream": "cpp",
         "streambuf": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "strstream": "cpp",
+        "complex": "cpp",
+        "iomanip": "cpp",
+        "sstream": "cpp"
     }
 }
