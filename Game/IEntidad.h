@@ -18,8 +18,8 @@ class IEntidad {
         virtual void setXD(int) = 0;
         virtual void setYD(int) = 0;
         virtual bool inBounds(int,int) = 0;
-        virtual void setOwner(Jugador *);
-        virtual Jugador* getOwner();
+        virtual void setOwner(Jugador *) = 0;
+        virtual Jugador* getOwner() = 0;
         //cvirtual void 
 
 };
