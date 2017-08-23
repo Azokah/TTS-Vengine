@@ -12,4 +12,5 @@ class Aldea : public Estructura {
         ~Aldea();
 
         virtual void update();
+        virtual void onClick();
 };

@@ -23,6 +23,7 @@ class Estructura : public IEntidad {
         virtual void setYD(int);// Metodo inexistente para Estructuras pero con cuerpo
         
         virtual bool inBounds(int,int);
+        virtual void onClick() = 0;
 
         virtual void setOwner(Jugador * OWNER);
         virtual Jugador* getOwner();

@@ -20,6 +20,7 @@ class IEntidad {
         virtual bool inBounds(int,int) = 0;
         virtual void setOwner(Jugador *) = 0;
         virtual Jugador* getOwner() = 0;
+        virtual void onClick() = 0;
         //cvirtual void 
 
 };

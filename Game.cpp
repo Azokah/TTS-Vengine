@@ -50,7 +50,7 @@ void Game::setUP(){
     }
 
     for(int j = 0; j < jugadores.size();j++){
-        std::cout<<"Jugador "<<jugadores.at(j)->getName()<<"escoge capital: "<<std::endl;
+        std::cout<<"Jugador "<<jugadores.at(j)->getName()<<" escoge capital: "<<std::endl;
         for(int i = 0; i < mapa->estructuras.size();i++)
         {
             if(mapa->estructuras.at(i)->getOwner() == NULL){
@@ -151,7 +151,7 @@ void Game::selectEntidades(int X,int Y){
     X=X/TILE_W;
     Y=Y/TILE_W;
     for(int i = 0; i < mapa->estructuras.size(); i++){
-        if(mapa->estructuras.at(i)->inBounds(X,Y)) std::cout<<"Seleccionada estructura: "<<i<<std::endl;
+        if(mapa->estructuras.at(i)->inBounds(X,Y)) mapa->estructuras.at(i)->onClick();
     }
 };
 
