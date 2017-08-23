@@ -1,7 +1,7 @@
 #pragma once
 //General
 //Constantes de Juego
-#define VERSION 0.3.1
+#define VERSION 0.3.3
 #define TILE_W 32
 #define TILE_H 32
 

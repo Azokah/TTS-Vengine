@@ -37,6 +37,7 @@ Game::~Game(){
 
 void Game::setUP(){
     int players;
+    int opc;
     std::string nombre;
     do{
         std::cout<<"Ingrese el numero de jugadores: ";
@@ -48,12 +49,18 @@ void Game::setUP(){
         jugadores.push_back(new Jugador(nombre,100));
     }
 
-    std::cout<<"Estructuras sin dueño existentes en el mapa: "<<std::endl;
-    for(int i = 0; i < mapa->estructuras.size();i++)
-    {
-        if(mapa->estructuras.at(i)->getOwner() == NULL){
-            std::cout<<mapa->estructuras.at(i)->getName()<<std::endl;
+    for(int j = 0; j < jugadores.size();j++){
+        std::cout<<"Jugador "<<jugadores.at(j)->getName()<<"escoge capital: "<<std::endl;
+        for(int i = 0; i < mapa->estructuras.size();i++)
+        {
+            if(mapa->estructuras.at(i)->getOwner() == NULL){
+                std::cout<<i<<". "<<mapa->estructuras.at(i)->getName()<<std::endl;
+            }
         }
+        do{
+            std::cin>>opc;
+        }while(opc <= -1 && opc >= mapa->estructuras.size());
+        mapa->estructuras.at(opc)->setOwner(jugadores.at(j));
     }
 }
 
