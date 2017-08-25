@@ -1,5 +1,7 @@
 #include "Game.h"
 
+bool dibujarMenu = false;
+
 Game &Game::getInstance()
 {
     static Game instancia;
@@ -19,6 +21,7 @@ Game::Game()
     musica->tocar();
     timer = new Timer();
     timer->start();
+    gui = new Gui();
     //Inicializar elementos game
     
     mapa = new Mapa(sdl->getRender());
@@ -82,6 +85,8 @@ void Game::update()
 };
 void Game::dibujar(){
     //mapa
+    //
+    
     for (int i = 0; i < MAPA_H; i++){
         for (int j = 0; j < MAPA_W; j++){
             renderComp->renderizar(j * TILE_W, i * TILE_H, TILE_W, TILE_H, mapa->sprite->getFrame(), camara);
@@ -104,6 +109,14 @@ void Game::dibujar(){
 };
 void Game::dibujarTop(){
     sdl->drawFPS();
+if(dibujarMenu){
+    	for(int i = 0; i < gui->componentes.size(); i++){
+		sdl->imprimirTexto(gui->componentes.at(i)->getText(),
+				gui->componentes.at(i)->getX(),
+				gui->componentes.at(i)->getY(),
+				255,0,0);
+	}
+    }
 }
 
 void Game::input(int tecla, bool estadoTecla){
@@ -127,6 +140,10 @@ void Game::input(int tecla, bool estadoTecla){
     case SDL_SCANCODE_INSERT:
         sdl->takeScreenshot();
         break;
+	case SDL_SCANCODE_SPACE:
+		if(dibujarMenu) dibujarMenu = false;
+		else dibujarMenu = true;
+	break;
     }
 };
 void Game::inputMouse(int tecla, int X, int Y)
