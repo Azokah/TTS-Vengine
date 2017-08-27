@@ -6,6 +6,7 @@
 #include "../Engine/Sprite.h"
 #include "IEntidad.h"
 #include "Unidad.h"
+#include "Jugador.h"
 
 enum estado{
     ATACANDO,
@@ -26,6 +27,11 @@ class Ejercito : public IEntidad {
         virtual int getY();
         virtual void setXD(int);
         virtual void setYD(int);
+	virtual bool inBounds(int,int);
+	virtual void setOwner(Jugador *);
+	virtual Jugador* getOwner();
+	virtual void onClick();
+
 
         void addUnidad(Unidad * unidad);
 
@@ -42,6 +48,8 @@ class Ejercito : public IEntidad {
     private:
         int size;
         float speed, fort, damage;
+	
+	Jugador * owner;
 
         int x, y, xd, yd;
 };

@@ -43,6 +43,29 @@ void Ejercito::addUnidad(Unidad * unidad){
     damage = damage/size;
 }
 
+bool Ejercito::inBounds(int X, int Y){
+    if(X == x  && Y == y){
+			return true;
+	} else return false;
+};
+
+
+void Ejercito::setOwner(Jugador * OWNER){
+	owner = OWNER;
+};
+Jugador* Ejercito::getOwner(){
+	return owner;
+};
+
+void Ejercito::onClick(){
+    int opc;
+    std::cout<<"Acciones: "<<std::endl;
+    std::cout<<"1. Reclutar."<<std::endl;
+    do{
+        std::cin>>opc;
+    }while(opc <= 0 && opc >= 2);
+    
+};
 
 void Ejercito::lucharCon(Ejercito *){
 
