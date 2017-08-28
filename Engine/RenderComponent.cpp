@@ -39,7 +39,7 @@ void RenderComponent::renderizarFixed(int x, int y,int w, int h,SDL_Rect * rect,
     //SDL_RenderDrawRect(render,&pos);
 };
 
-void RenderComponent::renderizarItem(int x, int y,int w, int h,SDL_Rect * rect,SDL_Rect* viewport){
+void RenderComponent::renderizarViewport(int x, int y,int w, int h,SDL_Rect * rect,SDL_Rect* viewport){
     SDL_RenderSetViewport(render,viewport);
     SDL_Rect pos;
     pos.x = x;

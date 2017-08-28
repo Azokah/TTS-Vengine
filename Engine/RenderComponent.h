@@ -12,7 +12,7 @@ class RenderComponent {
 
         void renderizar(int, int, int, int,SDL_Rect*,Camara*);
         void renderizarFixed(int,int,int,int,SDL_Rect*,bool);
-        void renderizarItem(int,int,int,int,SDL_Rect*,SDL_Rect*);
+        void renderizarViewport(int,int,int,int,SDL_Rect*,SDL_Rect*);
 
         void setClip(SDL_Rect *);
     private:

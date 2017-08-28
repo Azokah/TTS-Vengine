@@ -1,7 +1,7 @@
 #include "Gui.h"
 
 Gui::Gui(){
-	componentes.push_back(new GuiComponent("Turno de: ",PANTALLA_AN-250,50));
+	componentes.push_back(new GuiTexto("Turno de: ",PANTALLA_AN-250,50));
 	componentes.push_back(new GuiButton("Pasar Turno", PANTALLA_AN-250,100));
 };
 Gui::~Gui(){};

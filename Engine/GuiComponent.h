@@ -26,7 +26,6 @@ class GuiComponent {
 		enumTipo getTipo(){ return tipo;};
 
 		bool inBounds(int X, int Y){
-			std::cout<<"Buscando entidades en GUI"<<std::endl;
 			if( X >= x && X <= x+(texto.size()*TEXTO_SIZE)){
 				if( Y >= y && Y <= y+(texto.size())){
 				return true;
@@ -38,6 +37,9 @@ class GuiComponent {
 		void onClick(){
 			std::cout<<texto<<std::endl;
 		}
+
+		
+
 	private:
 		std::string texto;
 		int x, y;
@@ -45,10 +47,11 @@ class GuiComponent {
 };
 
 class GuiTexto : public GuiComponent {
-	GuiTexto(std::string txt, int X, int Y):GuiComponent(txt,X,Y){
-		GuiComponent::setTipo(TEXTO);
-	};
-	~GuiTexto(){};
+	public:
+		GuiTexto(std::string txt, int X, int Y):GuiComponent(txt,X,Y){
+			GuiComponent::setTipo(TEXTO);
+		};
+		~GuiTexto(){};
 };
 
 

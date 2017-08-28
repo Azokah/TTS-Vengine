@@ -114,12 +114,15 @@ void Game::dibujarTop(){
 			    gui->componentes.at(0)->getX(),
 			    gui->componentes.at(0)->getY(),
 			    255,0,0);
-	}else if(gui->componentes.at(i)->getTIpo() == BUTTON){
-		renderComp->renderizar(gui->componentes.at(i)->getX(),
-			gui->componentes.at(i)->getY(),
-			gui->componentes.at(i)->sprite->getFrame()->w,
-			gui->componentes.at(i)->sprite->getFrame()->h,
-			gui->componentes.at(i)->sprite->getFrame(),camara); 
+	}else if(gui->componentes.at(i)->getTipo() == BUTTON){ //Ugly fast FIX with dynamic_cast
+		GuiButton * boton = dynamic_cast<GuiButton*>(gui->componentes.at(i));
+		if(boton){
+			renderComp->renderizarFixed(boton->getX(),
+				boton->getY(),
+				boton->sprite->getFrame()->w,
+				boton->sprite->getFrame()->h,
+				boton->sprite->getFrame(),false); 
+		}
 		/* Esto se podria resolver con dynamic_cast... no se si es lo correcto
 		 * , creo que hay algun tipo de falla en el diseño de esto... */
 	}
