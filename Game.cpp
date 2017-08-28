@@ -109,12 +109,12 @@ void Game::dibujarTop(){
     sdl->drawFPS();
     
     for(int i = 0; i < gui->componentes.size(); i++){
-	if(gui->componentes.at(i)->getTipo() == TEXTO){ 
+	if(true){ 
 		sdl->imprimirTexto(gui->componentes.at(0)->getText(),
 			    gui->componentes.at(0)->getX(),
 			    gui->componentes.at(0)->getY(),
 			    255,0,0);
-	}else if(gui->componentes.at(i)->getTipo() == BUTTON){ //Ugly fast FIX with dynamic_cast
+	}else{ //Ugly fast FIX with dynamic_cast
 		GuiButton * boton = dynamic_cast<GuiButton*>(gui->componentes.at(i));
 		if(boton){
 			renderComp->renderizarFixed(boton->getX(),
@@ -125,6 +125,11 @@ void Game::dibujarTop(){
 		}
 		/* Esto se podria resolver con dynamic_cast... no se si es lo correcto
 		 * , creo que hay algun tipo de falla en el diseño de esto... */
+		//Notas de andres
+		//Cada elemento que se va a dibujar deberia implementar la interfaz Drawable.
+		//La interfaz Drawable especifica el metodo 'dibuja()' que va a dictar como se
+		//va a graficar cada objeto. 
+		//Es decir, cada objeto debe saber dibujarse a si mismo.
 	}
     };
 }
