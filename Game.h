@@ -5,6 +5,7 @@
 #include <boost/bind.hpp>
 #include <boost/shared_ptr.hpp>
 #include "Constantes.h"
+#include "Engine/ImouseInput.h"
 #include "Engine/SDLManager.h"
 #include "Engine/InputManager.h"
 #include "Engine/Camara.h"
@@ -29,7 +30,7 @@ enum game_estado{
         TERMINADO
 };
 
-class Game {
+class Game : public ImouseInput{
     public:
         //singleton
         static Game& getInstance();
@@ -42,7 +43,7 @@ class Game {
 
         void update();
         void input(int tecla, bool estado);
-        void inputMouse(int tecla, int X, int Y);
+        virtual void inputMouse(int tecla, int X, int Y);
         void dibujar();
         void dibujarHUD();
         void dibujarTop();

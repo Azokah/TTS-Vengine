@@ -1,7 +1,5 @@
 #include "Game.h"
 
-bool dibujarMenu = false;
-
 Game &Game::getInstance()
 {
     static Game instancia;
@@ -109,14 +107,23 @@ void Game::dibujar(){
 };
 void Game::dibujarTop(){
     sdl->drawFPS();
-if(dibujarMenu){
-    	for(int i = 0; i < gui->componentes.size(); i++){
-		sdl->imprimirTexto(gui->componentes.at(i)->getText(),
-				gui->componentes.at(i)->getX(),
-				gui->componentes.at(i)->getY(),
-				255,0,0);
+    
+    for(int i = 0; i < gui->componentes.size(); i++){
+	if(gui->componentes.at(i)->getTipo() == TEXTO){ 
+		sdl->imprimirTexto(gui->componentes.at(0)->getText(),
+			    gui->componentes.at(0)->getX(),
+			    gui->componentes.at(0)->getY(),
+			    255,0,0);
+	}else if(gui->componentes.at(i)->getTIpo() == BUTTON){
+		renderComp->renderizar(gui->componentes.at(i)->getX(),
+			gui->componentes.at(i)->getY(),
+			gui->componentes.at(i)->sprite->getFrame()->w,
+			gui->componentes.at(i)->sprite->getFrame()->h,
+			gui->componentes.at(i)->sprite->getFrame(),camara); 
+		/* Esto se podria resolver con dynamic_cast... no se si es lo correcto
+		 * , creo que hay algun tipo de falla en el diseño de esto... */
 	}
-    }
+    };
 }
 
 void Game::input(int tecla, bool estadoTecla){
@@ -140,10 +147,6 @@ void Game::input(int tecla, bool estadoTecla){
     case SDL_SCANCODE_INSERT:
         sdl->takeScreenshot();
         break;
-	case SDL_SCANCODE_SPACE:
-		if(dibujarMenu) dibujarMenu = false;
-		else dibujarMenu = true;
-	break;
     }
 };
 void Game::inputMouse(int tecla, int X, int Y)
@@ -172,9 +175,12 @@ void Game::selectEntidades(int X,int Y){
     }
 };
 
+
 void Game::bindearInput(){
+/* Signals and slots for input*/
     in->signalTecla.connect(boost::bind(&Game::input, this, _1, _2));
     in->signalBoton.connect(boost::bind(&Game::inputMouse, this, _1, _2, _3));
+    in->signalBoton.connect(boost::bind(&Gui::inputMouse,gui,_1,_2,_3));
     in->checkMouse.connect(boost::bind(&Camara::checkMouse, camara,_1, _2));
 };
 
