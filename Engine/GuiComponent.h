@@ -18,7 +18,7 @@ class GuiComponent {
 		int getY(){return y;};
 
 		virtual bool inBounds(int,int)  = 0;
-		virtual onClick() = 0;
+		virtual void onClick() = 0;
 
 		
 
@@ -32,7 +32,7 @@ class GuiTexto : public GuiComponent {
 		GuiTexto(std::string txt, int X, int Y):GuiComponent(txt,X,Y){
 		};
 		~GuiTexto(){};
-		bool inBounds(int X, int Y){
+		virtual bool inBounds(int X, int Y) override {
 			if( X >= GuiComponent::getX() && X <= GuiComponent::getX()+(texto.size()*TEXTO_SIZE)){
 				if( Y >= GuiComponent::getY() && Y <= GuiComponent::getY()+(GuiComponent::getText().size())){
 				return true;
@@ -41,7 +41,7 @@ class GuiTexto : public GuiComponent {
 				
 		};
 
-		void onClick(){
+		virtual void onClick() override{
 			std::cout<<GuiComponent::getText()<<std::endl;
 		}
 };
@@ -57,7 +57,7 @@ class GuiButton : public GuiComponent {
 		~GuiButton(){};
 
 		/*Override*/
-		bool inBounds(int X, int Y){
+		virtual bool inBounds(int X, int Y) override{
 			if(X >= GuiComponent::getX() && X <= GuiComponent::getX()+sprite->getFrame()->w){
 				if(Y >= GuiComponent::getY() && Y <= GuiComponent::getY()+sprite->getFrame()->h){
 					std::cout<< Y << " - " << GuiComponent::getY() << " - " << sprite->getFrame()->h<<std::endl;
@@ -68,7 +68,7 @@ class GuiButton : public GuiComponent {
 		};
 		
 		/* Override */
-		void onClick(){
+		virtual void onClick() override{
 			sprite->play();
 			sprite->run();
 		};
