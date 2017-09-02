@@ -130,6 +130,8 @@ void Game::dibujarTop(){
 		//La interfaz Drawable especifica el metodo 'dibuja()' que va a dictar como se
 		//va a graficar cada objeto. 
 		//Es decir, cada objeto debe saber dibujarse a si mismo.
+		// Solucion mas rapida, implementar la interfaz Drawable en los Sprite 
+		// y que posean un puntero a RenderComponent?
 	}
     };
 }
