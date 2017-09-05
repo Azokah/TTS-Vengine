@@ -33,7 +33,7 @@ class GuiTexto : public GuiComponent {
 		};
 		~GuiTexto(){};
 		virtual bool inBounds(int X, int Y) override {
-			if( X >= GuiComponent::getX() && X <= GuiComponent::getX()+(texto.size()*TEXTO_SIZE)){
+			if( X >= GuiComponent::getX() && X <= GuiComponent::getX()+(getText().size()*TEXTO_SIZE)){
 				if( Y >= GuiComponent::getY() && Y <= GuiComponent::getY()+(GuiComponent::getText().size())){
 				return true;
 				}

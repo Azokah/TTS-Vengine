@@ -7,7 +7,8 @@ Sprite::Sprite(){
     lastTick = timer->get_ticks();
     playing = false;
     velocidadAnimacion = TIEMPO_ANIMACION;
-    
+ 	//Init renderComp 
+	renderComp = &renderComp->getInstance(&SDLManager->getInstance()->getRender());
 };
 Sprite::~Sprite(){};
 

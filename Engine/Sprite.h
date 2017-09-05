@@ -8,6 +8,8 @@
 #include <vector>
 #include <SDL2/SDL.h>
 #include "Timer.h"
+#include "RenderComponent.h"
+#include "SDLManager.h"
 
 using namespace std;
 
@@ -34,5 +36,6 @@ class Sprite {
         int lastTick;
         bool playing;
         int velocidadAnimacion;
+	RenderComponent * renderComp;
 
 };
