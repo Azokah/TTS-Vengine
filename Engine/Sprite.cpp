@@ -7,8 +7,6 @@ Sprite::Sprite(){
     lastTick = timer->get_ticks();
     playing = false;
     velocidadAnimacion = TIEMPO_ANIMACION;
- 	//Init renderComp 
-	renderComp = &renderComp->getInstance(&SDLManager->getInstance()->getRender());
 };
 Sprite::~Sprite(){};
 
@@ -60,4 +58,6 @@ void Sprite::stop(){
 
 void Sprite::setVelocidad(int x){ velocidadAnimacion = x;};
 
-
+void Sprite::dibujar(int X, int Y){
+	RenderComponent::getInstance(SDLManager::getInstance().getRender()).renderizar(X,Y,TILE_W,TILE_H,getFrame(),&Camara::getInstance());
+};

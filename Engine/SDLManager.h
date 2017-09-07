@@ -12,7 +12,7 @@
 class SDLManager {
 
 	public:
-		SDLManager();
+		static SDLManager& getInstance();
 		~SDLManager();
 
 		void limpiarRender();
@@ -26,7 +26,7 @@ class SDLManager {
 
 		void takeScreenshot();
 	private:
-
+		SDLManager();
 		float FPS,FPSMAX,proximoTick;
 		SDL_Texture * cargarTextura(SDL_Renderer * renderer, std::string path);
 

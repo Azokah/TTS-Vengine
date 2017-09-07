@@ -1,5 +1,12 @@
 #include "SDLManager.h"
 
+
+
+SDLManager& SDLManager::getInstance(){
+	static  SDLManager instancia;
+	return instancia;
+};
+
 SDLManager::SDLManager()
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)

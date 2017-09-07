@@ -10,10 +10,13 @@ Game::Game()
 {
     estado = INICIANDO;
     //Inicializar elementos engine
-    sdl = new SDLManager();
+    //Singletons
+    sdl = &sdl->getInstance();
     in = &in->getInstance();
     camara = &camara->getInstance();
     renderComp = &renderComp->getInstance(sdl->getRender());
+    
+    
     colision = new Colision();
     musica = new Musica();
     musica->tocar();

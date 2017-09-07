@@ -10,6 +10,7 @@
 #include "Timer.h"
 #include "RenderComponent.h"
 #include "SDLManager.h"
+#include "Camara.h"
 
 using namespace std;
 
@@ -28,7 +29,8 @@ class Sprite {
         SDL_Rect* getFrameDir();
 
         void setVelocidad(int);
-        
+ 	
+ 	void dibujar(int,int);	
     private:
         vector<SDL_Rect> frames;
         int frame;
@@ -36,6 +38,5 @@ class Sprite {
         int lastTick;
         bool playing;
         int velocidadAnimacion;
-	RenderComponent * renderComp;
 
 };
