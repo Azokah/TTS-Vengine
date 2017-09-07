@@ -4,6 +4,11 @@
 #include "Jugador.h"
 #include "../Constantes.h"
 
+/*
+ *	Strategy,
+ *	Contiene los metodos que toda entidad debe implementar.
+ *	Jaime Gonzalez Bonorino - 2017
+ * */
 
 
 class IEntidad {
@@ -22,5 +27,6 @@ class IEntidad {
         virtual Jugador* getOwner() = 0;
         virtual void onClick() = 0;
         //cvirtual void 
+	virtual void dibujar() = 0; //Porque todas las entidades poseen Sprite
 
 };

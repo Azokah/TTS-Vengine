@@ -30,7 +30,9 @@ bool Estructura::inBounds(int X, int Y){
 			return true;
 	} else return false;
 };
-
+void Estructura::dibujar(){
+	sprite->dibujar(Estructura::getX()*TILE_W,Estructura::getY()*TILE_H);
+};
 
 void Estructura::setOwner(Jugador * OWNER){
 	owner = OWNER;

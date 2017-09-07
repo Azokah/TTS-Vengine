@@ -31,7 +31,7 @@ class Ejercito : public IEntidad {
 	virtual void setOwner(Jugador *);
 	virtual Jugador* getOwner();
 	virtual void onClick();
-
+	virtual void dibujar();
 
         void addUnidad(Unidad * unidad);
 

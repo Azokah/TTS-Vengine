@@ -27,6 +27,8 @@ class Estructura : public IEntidad {
 
         virtual void setOwner(Jugador * OWNER);
         virtual Jugador* getOwner();
+	
+	virtual void dibujar();
 
         void setX(int);
         void setY(int);

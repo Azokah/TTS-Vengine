@@ -67,6 +67,10 @@ void Ejercito::onClick(){
     
 };
 
+void Ejercito::dibujar(){
+	sprite->dibujar(Ejercito::getX()*TILE_W,Ejercito::getY()*TILE_H);
+}
+
 void Ejercito::lucharCon(Ejercito *){
 
 };
