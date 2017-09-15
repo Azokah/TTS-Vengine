@@ -4,6 +4,7 @@
 #include <vector>
 #include "../Constantes.h"
 #include "../Engine/Sprite.h"
+#include "../Engine/SDLManager.h"
 #include "Estructura.h"
 #include "Castillo.h"
 #include "Aldea.h"
@@ -15,7 +16,7 @@
 
 class Mapa {
     public:
-        Mapa(SDL_Renderer * RENDER);
+        Mapa();
         ~Mapa();
         
         int getMapa(int,int);

@@ -63,5 +63,5 @@ void Sprite::dibujar(int X, int Y){
 };
 
 void Sprite::dibujarFixed(int X, int Y){
-RenderComponent::getInstance(SDLManager::getInstance().getRender()).renderizarFixed(X,Y,TILE_W,TILE_H,getFrame(),&Camara::getInstance(),false);
+RenderComponent::getInstance(SDLManager::getInstance().getRender()).renderizarFixed(X,Y,TILE_W,TILE_H,getFrame(),false);
 };

@@ -25,7 +25,7 @@ Game::Game()
     gui = new Gui();
     //Inicializar elementos game
     
-    mapa = new Mapa(sdl->getRender());
+    mapa = new Mapa();
 
     /* 
     * Problemas principales:
