@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "SDLManager.h"
+#include "RenderComponent.h"
 #include "Sprite.h"
 #include "../Constantes.h"
 
@@ -19,7 +21,7 @@ class GuiComponent {
 
 		virtual bool inBounds(int,int)  = 0;
 		virtual void onClick() = 0;
-
+		virtual void dibujar() = 0;
 		
 
 	private:
@@ -33,8 +35,11 @@ class GuiTexto : public GuiComponent {
 		};
 		~GuiTexto(){};
 		virtual bool inBounds(int X, int Y) override {
-			if( X >= GuiComponent::getX() && X <= GuiComponent::getX()+(getText().size()*TEXTO_SIZE)){
-				if( Y >= GuiComponent::getY() && Y <= GuiComponent::getY()+(GuiComponent::getText().size())){
+			if( X >= GuiComponent::getX() &&
+				       	X <= GuiComponent::getX()+(getText().size()*TEXTO_SIZE)){
+				if( Y >= GuiComponent::getY() &&
+					       	Y <= GuiComponent::getY()+
+						(GuiComponent::getText().size())){
 				return true;
 				}
 			}else return false;
@@ -44,6 +49,13 @@ class GuiTexto : public GuiComponent {
 		virtual void onClick() override{
 			std::cout<<GuiComponent::getText()<<std::endl;
 		}
+
+		virtual void dibujar() override{
+			SDLManager::getInstance().imprimirTexto(getText(),
+					getX(),
+					getY(),
+					255,0,0);
+		};
 };
 
 
@@ -58,8 +70,10 @@ class GuiButton : public GuiComponent {
 
 		/*Override*/
 		virtual bool inBounds(int X, int Y) override{
-			if(X >= GuiComponent::getX() && X <= GuiComponent::getX()+sprite->getFrame()->w){
-				if(Y >= GuiComponent::getY() && Y <= GuiComponent::getY()+sprite->getFrame()->h){
+			if(X >= GuiComponent::getX() &&
+				       	X <= GuiComponent::getX()+sprite->getFrame()->w){
+				if(Y >= GuiComponent::getY() &&
+					       	Y <= GuiComponent::getY()+sprite->getFrame()->h){
 					std::cout<< Y << " - " << GuiComponent::getY() << " - " << sprite->getFrame()->h<<std::endl;
 					return true;
 				}
@@ -74,6 +88,9 @@ class GuiButton : public GuiComponent {
 		};
 
 		Sprite * sprite;
-
+		
+		virtual void dibujar() override{
+			sprite->dibujar(getX(),getY());
+		};
 		
 };

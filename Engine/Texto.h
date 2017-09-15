@@ -14,7 +14,6 @@ public:
 	void ponerTexto(std::string texto,int x, int y, int r, int g, int b, SDL_Renderer* render);
 	void init(int x);
 	void setAlpha(int x);
-
 private:
 
 	int _tam, _a;
@@ -24,6 +23,6 @@ private:
 	SDL_Color colorTexto;
 	SDL_Rect _rectTexto;
 
-
+	
 };
 

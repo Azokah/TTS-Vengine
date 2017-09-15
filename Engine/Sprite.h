@@ -30,7 +30,8 @@ class Sprite {
 
         void setVelocidad(int);
  	
- 	void dibujar(int,int);	
+ 	void dibujar(int,int);
+	void dibujarFixed(int,int);	
     private:
         vector<SDL_Rect> frames;
         int frame;

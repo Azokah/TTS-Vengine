@@ -1,7 +1,7 @@
 #include "Mapa.h"
 
 
-Mapa::Mapa(SDL_Renderer * RENDER){
+Mapa::Mapa(){
     sprite = new Sprite();
     sprite->agregarFrame(32,0,32,32);
     for(int i = 0; i < MAPA_H; i++)
@@ -14,4 +14,17 @@ Mapa::Mapa(SDL_Renderer * RENDER){
 };
 Mapa::~Mapa(){};
 
+
+void Mapa::dibujar(){
+	for (int i = 0; i < MAPA_H; i++){
+		for (int j = 0; j < MAPA_W; j++){
+           RenderComponent::getInstance(SDLManager().getInstance()).renderizar(j * TILE_W,
+			    i * TILE_H,
+			    TILE_W,
+			    TILE_H,
+			    sprite->getFrame(),
+			    Camara::getInstance());
+        } 
+    }
+}
 int Mapa::getMapa(int x, int y){return mapa[x][y];};

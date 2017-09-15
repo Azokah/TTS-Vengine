@@ -8,15 +8,23 @@
 #include "Castillo.h"
 #include "Aldea.h"
 
+/*
+ * Mapa deberia ser una entidad?
+ * */
+
+
 class Mapa {
     public:
         Mapa(SDL_Renderer * RENDER);
         ~Mapa();
         
         int getMapa(int,int);
+	void dibujar();
 
         Sprite * sprite;
         std::vector<Estructura *> estructuras;
+    
+    
     private:
         int mapa[MAPA_H][MAPA_W];
         

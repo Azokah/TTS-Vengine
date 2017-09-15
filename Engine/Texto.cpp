@@ -53,3 +53,4 @@ void Texto::init(int x)
 		getError("No se pudo cargar la fuente 1");
 	}
 }
+

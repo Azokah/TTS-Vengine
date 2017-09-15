@@ -61,3 +61,7 @@ void Sprite::setVelocidad(int x){ velocidadAnimacion = x;};
 void Sprite::dibujar(int X, int Y){
 	RenderComponent::getInstance(SDLManager::getInstance().getRender()).renderizar(X,Y,TILE_W,TILE_H,getFrame(),&Camara::getInstance());
 };
+
+void Sprite::dibujarFixed(int X, int Y){
+RenderComponent::getInstance(SDLManager::getInstance().getRender()).renderizarFixed(X,Y,TILE_W,TILE_H,getFrame(),&Camara::getInstance(),false);
+};

@@ -86,27 +86,16 @@ void Game::update()
 };
 void Game::dibujar(){
     //mapa
-    //
+    mapa->dibujar();   
     
-    for (int i = 0; i < MAPA_H; i++){
-        for (int j = 0; j < MAPA_W; j++){
-            renderComp->renderizar(j * TILE_W, i * TILE_H, TILE_W, TILE_H, mapa->sprite->getFrame(), camara);
-            //Estructuras
-            for(int o = 0; o < mapa->estructuras.size(); o++){
-                if(mapa->estructuras.at(o)->getX() == j && mapa->estructuras.at(o)->getY() == i)
-                renderComp->renderizar(j * TILE_W, i * TILE_H, TILE_W, TILE_H, mapa->estructuras.at(o)->sprite->getFrame(), camara);
-            }
-        } 
-    }
+	//Estructuras
+	for(int o = 0; o < mapa->estructuras.size(); o++){
+        	mapa->estructuras.at(o)->dibujar();
+	}
 
     dibujarTop();
     
 
-    /*
-    if(colision->detectar(pj->getX(),pj->getY(),PJ_SPRITE_W,PJ_SPRITE_H,
-        pj2->getX(),pj2->getY(),PJ_SPRITE_W,PJ_SPRITE_H))
-            sdl->imprimirTexto("Colision entre Pj1 y pj2.",500,300,255,125,0); //Prueba...
-    */
 };
 void Game::dibujarTop(){
     sdl->drawFPS();
