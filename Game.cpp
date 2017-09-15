@@ -101,20 +101,8 @@ void Game::dibujarTop(){
     sdl->drawFPS();
     
     for(int i = 0; i < gui->componentes.size(); i++){
-	if(true){ 
-		sdl->imprimirTexto(gui->componentes.at(0)->getText(),
-			    gui->componentes.at(0)->getX(),
-			    gui->componentes.at(0)->getY(),
-			    255,0,0);
-	}else{ //Ugly fast FIX with dynamic_cast
-		GuiButton * boton = dynamic_cast<GuiButton*>(gui->componentes.at(i));
-		if(boton){
-			renderComp->renderizarFixed(boton->getX(),
-				boton->getY(),
-				boton->sprite->getFrame()->w,
-				boton->sprite->getFrame()->h,
-				boton->sprite->getFrame(),false); 
-		}
+	gui->componentes.at(i)->dibujar();
+   
 		/* Esto se podria resolver con dynamic_cast... no se si es lo correcto
 		 * , creo que hay algun tipo de falla en el diseño de esto... */
 		//Notas de andres
@@ -124,7 +112,6 @@ void Game::dibujarTop(){
 		//Es decir, cada objeto debe saber dibujarse a si mismo.
 		// Solucion mas rapida, implementar la interfaz Drawable en los Sprite 
 		// y que posean un puntero a RenderComponent?
-	}
     };
 }
 
