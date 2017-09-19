@@ -3,6 +3,7 @@
 #include <string>
 #include "SDLManager.h"
 #include "RenderComponent.h"
+#include "Camara.h"
 #include "Sprite.h"
 #include "../Constantes.h"
 
@@ -40,8 +41,8 @@ class GuiTexto : public GuiComponent {
 				if( Y >= GuiComponent::getY() &&
 					       	Y <= GuiComponent::getY()+
 						(GuiComponent::getText().size())){
-				return true;
-				}
+					return true;
+				}else return false;
 			}else return false;
 				
 		};
@@ -74,7 +75,6 @@ class GuiButton : public GuiComponent {
 				       	X <= GuiComponent::getX()+sprite->getFrame()->w){
 				if(Y >= GuiComponent::getY() &&
 					       	Y <= GuiComponent::getY()+sprite->getFrame()->h){
-					std::cout<< Y << " - " << GuiComponent::getY() << " - " << sprite->getFrame()->h<<std::endl;
 					return true;
 				}
 			}
@@ -90,7 +90,7 @@ class GuiButton : public GuiComponent {
 		Sprite * sprite;
 		
 		virtual void dibujar() override{
-			sprite->dibujar(getX(),getY());
+			sprite->dibujarFixed(getX(),getY());
 		};
 		
 };

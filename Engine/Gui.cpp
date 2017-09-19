@@ -9,6 +9,8 @@ Gui::~Gui(){};
 
 void Gui::inputMouse(int tecla, int X, int Y)
 {
+	X -= Camara::getInstance().getX();
+	Y -= Camara::getInstance().getY();
     switch (tecla){
         case SDL_BUTTON_LEFT:
  	
