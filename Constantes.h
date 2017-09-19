@@ -1,4 +1,23 @@
 #pragma once
+//Notas:
+//Implementar patron STATE para el manejo de TURNOS de los jugadores.
+//Si es el turno del jugador rojo, el input y las acciones 
+//	posibles deben reaccionar de una determinada manera.
+//	El contexto es el turno del jugador actual.
+//
+//Crear clase resource manager:
+//	ResourceManager: Controla la carga y descarga de recursos. 
+//Problemas principales:
+//          Sprite deberia tener la textura de Missing texture de forma automatica.
+//Consejos recibidos:
+//	Migrar todo a NODOS. Asi se manejan los engine hoy en dia.
+//
+
+
+
+
+
+
 //General
 //Constantes de Juego
 #define VERSION 0.3.3
@@ -49,3 +68,6 @@
 #define AUDIO_HZ 44100
 #define AUDIO_CHANNELS 2
 #define AUDIO_CHUNK_SIZE 4096
+
+//GUI
+#define CURRENT_TURN_PLAYER_OFFSET 50

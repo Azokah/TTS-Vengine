@@ -27,10 +27,6 @@ Game::Game()
     
     mapa = new Mapa();
 
-    /* 
-    * Problemas principales:
-            Sprite deberia tener la textura de Missing texture de forma automatica.
-    */
     bindearInput();
 
     setUP();
@@ -66,16 +62,19 @@ void Game::setUP(){
         }while(opc <= -1 && opc >= mapa->estructuras.size());
         mapa->estructuras.at(opc)->setOwner(jugadores.at(j));
     }
+    jugadores.at(0)->estado = JUGANDO;
 }
 
 void Game::run()
 {
     std::cout << "El juego ha comenzado..." << std::endl;
+    int turnoPjActual = 0;
     while (estado == CORRIENDO)
     {
         sdl->limpiarRender();
         update();
-        dibujar();
+	dibujar();
+	manageTurn(&turnoPjActual,jugadores.at(turnoPjActual));
         sdl->renderizar();
     }
 };
@@ -98,21 +97,17 @@ void Game::dibujar(){
 
 };
 void Game::dibujarTop(){
-    sdl->drawFPS();
-    
-    for(int i = 0; i < gui->componentes.size(); i++){
-	gui->componentes.at(i)->dibujar();
-   
-		/* Esto se podria resolver con dynamic_cast... no se si es lo correcto
-		 * , creo que hay algun tipo de falla en el diseño de esto... */
-		//Notas de andres
-		//Cada elemento que se va a dibujar deberia implementar la interfaz Drawable.
-		//La interfaz Drawable especifica el metodo 'dibuja()' que va a dictar como se
-		//va a graficar cada objeto. 
-		//Es decir, cada objeto debe saber dibujarse a si mismo.
-		// Solucion mas rapida, implementar la interfaz Drawable en los Sprite 
-		// y que posean un puntero a RenderComponent?
-    };
+	sdl->drawFPS();
+ 
+	for(int j = 0; j< jugadores.size(); j++)
+		if(jugadores.at(j)->estado == JUGANDO)
+   			sdl->imprimirTexto(jugadores.at(j)->getName(),
+					PANTALLA_AN-CURRENT_TURN_PLAYER_OFFSET,
+					CURRENT_TURN_PLAYER_OFFSET,255,0,0);
+
+	for(int i = 0; i < gui->componentes.size(); i++){
+		gui->componentes.at(i)->dibujar();
+      	};
 }
 
 void Game::input(int tecla, bool estadoTecla){
@@ -148,15 +143,6 @@ void Game::inputMouse(int tecla, int X, int Y)
 };
 
 void Game::selectEntidades(int X,int Y){
-    /* Funcion que recibe una posicion y checkea si alguna entidad del juego la ocupa. y luego la pasa al HUD para setear objetivo
-        Puede ser modificado para que devuelva la entidad y darle mayor scope a la funcion. 
-    std::cout<<"Personajes: "<<personajes.size()<<"."<<std::endl<<"Objetos: "<<mapa->objetos.size()<<"."<<std::endl;
-    for(int o = 0; o < personajes.size(); o++){
-        if(personajes.at(o)->getX()/32 == X/32  && personajes.at(o)->getY()/32 == Y/32) hud->setObjetivo(personajes.at(o));
-    }
-    for(int o = 0; o < mapa->objetos.size(); o++){
-        if(mapa->objetos.at(o)->getX() == X/32  && mapa->objetos.at(o)->getY() == Y/32) hud->setObjetivo(mapa->objetos.at(o));
-    }*/
     X=X/TILE_W;
     Y=Y/TILE_W;
     for(int i = 0; i < mapa->estructuras.size(); i++){
@@ -173,7 +159,15 @@ void Game::bindearInput(){
     in->checkMouse.connect(boost::bind(&Camara::checkMouse, camara,_1, _2));
 };
 
-//Crear clase resource manager:
-/*
-**ResourceManager: Controla la carga y descarga de recursos. 
-*/
+void Game::manageTurn(int* turno, Jugador * pj){
+	if(pj->estado == JUGANDO){
+		//Turn code here
+
+
+
+	}else {
+		(*turno)++;
+		pj->estado = EN_ESPERA;
+		jugadores.at((*turno))->estado = JUGANDO;
+	}
+};

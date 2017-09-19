@@ -49,7 +49,8 @@ class Game : public ImouseInput{
         void dibujarTop();
         void bindearInput();
         void selectEntidades(int,int);
-
+	
+	void manageTurn(int*,Jugador *);
         void setUP();
 
 
