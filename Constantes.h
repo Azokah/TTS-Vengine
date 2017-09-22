@@ -1,9 +1,15 @@
 #pragma once
 //Notas:
+//Arreglar el input, implementando un patron COMMANDER.
+//
 //Implementar patron STATE para el manejo de TURNOS de los jugadores.
 //Si es el turno del jugador rojo, el input y las acciones 
 //	posibles deben reaccionar de una determinada manera.
 //	El contexto es el turno del jugador actual.
+//	El input y quien lo recibe no cambian. El juego recibe el input.
+//	Las entidades reaccionan segun el ESTADO actual.
+//	El estado pertenece al jugador. Las entidades pueden reaccionar de fos formas
+//	Hacia su dueño(el dueño del estado) o hacia los visitantes.
 //
 //Crear clase resource manager:
 //	ResourceManager: Controla la carga y descarga de recursos. 
@@ -25,7 +31,7 @@
 #define TILE_H 32
 
 //SDLWrapper
-#define TITULO "Titulo"
+#define TITULO "TTS-Vengine"
 #define PANTALLA_AN 800
 #define PANTALLA_AL 600
 #define GAME_OPTIONS SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC

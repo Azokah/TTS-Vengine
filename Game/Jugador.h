@@ -3,11 +3,10 @@
 #include <string>
 #include <vector>
 #include "../Constantes.h"
+#include "JugadorState.h"
+#include "JugadorJugando.h"
+#include "JugadorEsperando.h"
 
-enum estadoJugador{
-	EN_ESPERA,
-	JUGANDO
-};
 
 class Jugador {
     public:
@@ -16,7 +15,7 @@ class Jugador {
 
         std::string getName();
         
-	estadoJugador estado;
+	JugadorState * estado;
     private:
         std::string name;
         int gold;

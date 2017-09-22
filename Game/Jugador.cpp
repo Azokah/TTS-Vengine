@@ -4,7 +4,7 @@
 Jugador::Jugador(std::string NAME, int GOLD){
     name = NAME;
     gold = GOLD;
-    estado = EN_ESPERA;
+    estado = new JugadorEsperando();
 }
 Jugador::~Jugador(){};
 

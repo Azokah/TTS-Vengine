@@ -23,7 +23,6 @@
 #include "Game/Aldea.h"
 #include "Game/Jugador.h"
 
-
 enum game_estado{
         INICIANDO,
         CORRIENDO,
