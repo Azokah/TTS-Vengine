@@ -1,0 +1,49 @@
+class Camina
+!!!192514.cpp!!!	Camina(in X : int, in Y : int)
+    x = X;
+    y = Y;
+    xDestino = x;
+    yDestino = y;
+    xIncremento = yIncremento = 0;
+    direccion = PJ_DIRECCION_SUR;
+    velocidad = PJ_VELOCIDAD;
+!!!192770.cpp!!!	moveTo(in X : int, in Y : int) : void
+    xDestino = (((int)X-PJ_OFFSET_X)/32)*32;
+    yDestino = (((int)Y-PJ_OFFSET_Y)/32)*32;
+    xIncremento = xDestino - x;
+    yIncremento = yDestino - y;
+    if(std::abs(xIncremento) > std::abs(yIncremento)){
+        if(xIncremento > 0) direccion = PJ_DIRECCION_OESTE;
+        else direccion = PJ_DIRECCION_ESTE;
+    }  else {
+        if( yIncremento > 0) direccion = PJ_DIRECCION_SUR;
+        else direccion = PJ_DIRECCION_NORTE;
+    }
+    normalizar(&xIncremento, &yIncremento);
+!!!192898.cpp!!!	getX() : int
+ return x;
+!!!193026.cpp!!!	getY() : int
+ return y;
+!!!193154.cpp!!!	normaVector(in X : float, in Y : float) : float
+ return sqrt(X * X + Y * Y);
+!!!193282.cpp!!!	normalizar(inout X : float, inout Y : float) : void
+    float norma = normaVector(*X, *Y);
+    *X /= norma;
+    *Y /= norma;
+    *X *= velocidad;
+    *Y *= velocidad;
+!!!193410.cpp!!!	move() : bool
+    bool retorno = true;
+    if ((int)xDestino != (int)x || (int)yDestino != (int)y)
+    { //Esta mejor pero puede mejorar
+        
+        if(((xDestino > x) &&(x+xIncremento > xDestino)) || ((xDestino < x) &&(x+xIncremento < xDestino))) x = xDestino;
+        else x += xIncremento;
+        
+        if(((yDestino > y) &&(y+yIncremento > yDestino)) || ((yDestino < y) &&(y+yIncremento < yDestino))) y = yDestino;
+        else y += yIncremento;
+        
+    }
+    else retorno = false;
+    caminando = retorno;
+    return retorno;

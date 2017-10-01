@@ -16,9 +16,8 @@ SDLManager::SDLManager()
 
     //tileset = cargarTextura(render, ASSETS_PATH);
 
-    timer = new Timer();
-    timer->start();
-    proximoTick = timer->get_ticks() + 1000;
+    
+    proximoTick = Timer::getInstance().get_ticks() + 1000;
 
     texto = new Texto();
     texto->init(TEXTO_SIZE);
@@ -55,8 +54,8 @@ void SDLManager::renderizar() { //Renderizo y aumento el conteo de FPS.
 SDL_Renderer * SDLManager::getRender() { return render; };
 
 void SDLManager::drawFPS(){
-	if(timer->get_ticks() >= proximoTick) {
-		proximoTick = timer->get_ticks() + 1000;
+	if(Timer::getInstance().get_ticks() >= proximoTick) {
+		proximoTick = Timer::getInstance().get_ticks() + 1000;
 		FPSMAX = FPS;
 		FPS = 0;
 	}

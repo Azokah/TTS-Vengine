@@ -38,6 +38,5 @@ class SDLManager {
         SDL_Event event;
 
 		Texto * texto;
-		Timer * timer;
 };
 

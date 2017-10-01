@@ -1,0 +1,25 @@
+class Aldea
+!!!178050.cpp!!!	Aldea(in NAME : std::string, in DESC : std::string, in HP : int, in DEFENSE : int, in SIZE : int, in X : int, in Y : int)
+    setName(NAME);
+    setDesc(DESC);
+    setHP(HP);
+    setDef(DEFENSE);
+    setSize(SIZE);
+    setX(X);
+    setY(Y);
+    setOwner(new Jugador(SIN_DUENO,0));
+
+    sprite = new Sprite();
+    sprite->agregarFrame(TILE_W*9,TILE_H*2,TILE_W,TILE_H);
+!!!178306.cpp!!!	update() : void
+
+!!!178434.cpp!!!	onClick(inout jugador : Jugador) : void
+    int opc;
+    std::cout<<"Aldea "<<getName()<<"."<<std::endl;
+    if(Estructura::getOwner()->getName().compare(jugador->getName()) == 0){
+    	std::cout<<"Acciones: "<<std::endl;
+    	std::cout<<"1. Irse."<<std::endl;
+    	do{
+        	std::cin>>opc;
+    	}while(opc <= 0 && opc >= 2);
+    }

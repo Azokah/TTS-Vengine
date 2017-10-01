@@ -1,0 +1,48 @@
+class Estructura
+!!!182530.cpp!!!	moveTo(in X : int, in Y : int) : void
+/*Castles dont move*/
+!!!182658.cpp!!!	move() : void
+/*Castles dont move;*/
+!!!182786.cpp!!!	getX() : int
+ return x;
+!!!182914.cpp!!!	getY() : int
+ return y;
+!!!183042.cpp!!!	setXD(in X : int) : void
+ /* Castles dont move*/
+!!!183170.cpp!!!	setYD(in Y : int) : void
+/* Castles dont move*/
+!!!183298.cpp!!!	inBounds(in X : int, in Y : int) : bool
+    if(X == x  && Y == y){
+			return true;
+	} else return false;
+!!!183554.cpp!!!	setOwner(inout OWNER : Jugador) : void
+	owner = OWNER;
+!!!183682.cpp!!!	getOwner() : Jugador
+	return owner;
+!!!183810.cpp!!!	dibujar() : void
+	RenderComponent::getInstance(SDLManager::getInstance().getRender()).setColorMod(180,180,180);
+	sprite->dibujar(Estructura::getX()*TILE_W,Estructura::getY()*TILE_H);
+!!!183938.cpp!!!	setX(in X : int) : void
+ x = X;
+!!!184066.cpp!!!	setY(in Y : int) : void
+ y=Y;
+!!!184194.cpp!!!	getName() : std::string
+return name;
+!!!184322.cpp!!!	getDesc() : std::string
+return description;
+!!!184450.cpp!!!	getHP() : int
+return hp;
+!!!184578.cpp!!!	getDef() : int
+return defense;
+!!!184706.cpp!!!	getSize() : int
+return size;
+!!!184834.cpp!!!	setName(in NAME : std::string) : void
+ name = NAME;
+!!!184962.cpp!!!	setDesc(in DESC : std::string) : void
+ description = DESC;
+!!!185090.cpp!!!	setHP(in HP : int) : void
+hp=HP;
+!!!185218.cpp!!!	setDef(in DEF : int) : void
+defense = DEF;
+!!!185346.cpp!!!	setSize(in SIZE : int) : void
+size = SIZE;

@@ -1,0 +1,25 @@
+class Jugador
+!!!187394.cpp!!!	Jugador(in NAME : std::string, in GOLD : int)
+    name = NAME;
+    gold = GOLD;
+    estado = new JugadorEsperando();
+!!!187650.cpp!!!	getName() : std::string
+return name;
+!!!187778.cpp!!!	setNumero(in x : int) : void
+	numero = x;
+!!!187906.cpp!!!	getNumero() : int
+ return numero;
+!!!188034.cpp!!!	setColorMod(in R : Uint8, in G : Uint8, in B : Uint8) : void
+	r=R;
+	g=G;
+	b=B;
+!!!188162.cpp!!!	getR() : Uint8
+ return r;
+!!!188290.cpp!!!	getG() : Uint8
+return g;
+!!!188418.cpp!!!	getB() : Uint8
+ return b;
+!!!188546.cpp!!!	setGold(in x : int) : void
+ gold += x;
+!!!188674.cpp!!!	getGold() : int
+ return gold;

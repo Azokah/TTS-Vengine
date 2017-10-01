@@ -1,0 +1,15 @@
+window_sizes 1800 921 450 1344 746 120
+cleanlooks_style
+diagrams
+  active  classdiagram_ref 128002 // Diagrama
+    1139 596 80 C 597 2
+end
+show_stereotypes
+selected class_ref 136450 // Ejercito
+open
+  classview_ref 128642 // TTS-Vengine
+  classview_ref 128770 // Engine
+  classview_ref 128898 // Game
+  classview_ref 129154 // classview
+end
+end

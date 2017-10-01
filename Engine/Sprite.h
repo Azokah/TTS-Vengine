@@ -35,7 +35,6 @@ class Sprite {
     private:
         vector<SDL_Rect> frames;
         int frame;
-        Timer * timer;
         int lastTick;
         bool playing;
         int velocidadAnimacion;

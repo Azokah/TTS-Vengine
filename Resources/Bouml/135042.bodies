@@ -1,0 +1,12 @@
+class SpriteSheet
+!!!174466.cpp!!!	getInstance(inout render : SDL_Renderer) : SpriteSheet
+    static SpriteSheet * instance = new SpriteSheet(render);
+    return *instance;
+!!!174594.cpp!!!	~SpriteSheet()
+    SDL_DestroyTexture(textura);
+!!!174722.cpp!!!	loadSpriteSheet(inout render : SDL_Renderer) : void
+    textura = IMG_LoadTexture(render,ASSETS_PATH);
+!!!174850.cpp!!!	getSpriteSheet() : SDL_Texture
+return textura;
+!!!174978.cpp!!!	SpriteSheet(inout render : SDL_Renderer)
+    loadSpriteSheet(render);

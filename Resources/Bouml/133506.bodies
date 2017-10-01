@@ -1,0 +1,44 @@
+class RenderComponent
+!!!170114.cpp!!!	getInstance(inout RENDER : SDL_Renderer) : RenderComponent
+    static RenderComponent * instance = new RenderComponent(RENDER);
+    return *instance;
+!!!170370.cpp!!!	renderizar(in x : int, in y : int, in w : int, in h : int, inout rect : SDL_Rect, inout camara : Camara) : void
+    SDL_Rect pos;
+    pos.x = x - camara->getX();
+    pos.y = y - camara->getY();
+    pos.w = w;
+    pos.h = h;
+    if((x >= camara->getX()-TILE_W && x  <= (camara->getX() + PANTALLA_AN+TILE_W)) &&
+       (y >= camara->getY()-TILE_H && y <= (camara->getY() + PANTALLA_AL+TILE_H))) SDL_RenderCopy(render,sprSh->getSpriteSheet(),rect,&pos);
+    //SDL_RenderDrawRect(render,&pos);
+!!!170498.cpp!!!	renderizarFixed(in x : int, in y : int, in w : int, in h : int, inout rect : SDL_Rect, in flipped : bool) : void
+    SDL_Rect pos;
+    pos.x = x;
+    pos.y = y;
+    pos.w = w;
+    pos.h = h;
+    if(!flipped) SDL_RenderCopy(render,sprSh->getSpriteSheet(),rect,&pos);
+    else SDL_RenderCopyEx(render,sprSh->getSpriteSheet(),rect,&pos,0,NULL,SDL_FLIP_HORIZONTAL);
+    //SDL_RenderDrawRect(render,&pos);
+!!!170626.cpp!!!	renderizarViewport(in x : int, in y : int, in w : int, in h : int, inout rect : SDL_Rect, inout viewport : SDL_Rect) : void
+    SDL_RenderSetViewport(render,viewport);
+    SDL_Rect pos;
+    pos.x = x;
+    pos.y = y;
+    pos.w = w;
+    pos.h = h;
+    SDL_RenderCopy(render,sprSh->getSpriteSheet(),rect,&pos);
+    SDL_RenderSetViewport(render,&vPort);
+!!!170754.cpp!!!	setClip(inout clip : SDL_Rect) : void
+    SDL_RenderSetClipRect(render,clip);
+!!!170882.cpp!!!	setColorMod(in r : Uint8, in g : Uint8, in b : Uint8) : void
+	SDL_SetTextureColorMod(sprSh->getSpriteSheet(),r,g,b);
+!!!171010.cpp!!!	RenderComponent(inout RENDER : SDL_Renderer)
+    render = RENDER;
+    sprSh = &sprSh->getInstance(RENDER);
+
+    vPort.x = 0;
+    vPort.y = 0;
+    vPort.w = PANTALLA_AN;
+    vPort.h = PANTALLA_AL;
+    

@@ -1,5 +1,11 @@
 #include "Timer.h"
 
+
+Timer& Timer::getInstance(){
+	static Timer instance;
+	return instance;
+}
+Timer::~Timer(){};
 Timer::Timer()
 {
     //Initialize the variables
@@ -9,6 +15,7 @@ Timer::Timer()
     started = false;
 	_contando = -1;
 	lastUpdateTicks = 0;
+	start();
 }
 void Timer::start()
 {

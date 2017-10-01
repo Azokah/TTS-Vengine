@@ -1,14 +1,10 @@
-#include "Sprite.h"
-
-Sprite::Sprite(){
+class Sprite
+!!!172930.cpp!!!	Sprite()
     frame = 0;
     lastTick = Timer::getInstance().get_ticks();
     playing = false;
     velocidadAnimacion = TIEMPO_ANIMACION;
-};
-Sprite::~Sprite(){};
-
-void Sprite::run(){
+!!!173186.cpp!!!	run() : void
     if(playing){
         if(Timer::getInstance().get_ticks() > lastTick + velocidadAnimacion){
             lastTick = Timer::getInstance().get_ticks();
@@ -17,49 +13,32 @@ void Sprite::run(){
         }
     }
     
-};
-
-void Sprite::agregarFrame(int x, int y, int w ,int h)
-{
-    SDL_Rect rect;
-    rect.x = x;
-    rect.y = y;
-    rect.w = w;
-    rect.h = h;
-    frames.push_back(rect);
-}
-void Sprite::agregarFrame(int x, int y, int w ,int h, int dir)
-{
-    SDL_Rect rect;
-    rect.x = x;
-    rect.y = y;
-    rect.w = w;
-    rect.h = h;
-    frames.push_back(rect);
-}
-
-SDL_Rect* Sprite::getFrame(){
-    return &frames.at(frame);
-};
-SDL_Rect* Sprite::getFrameDir(){
-    return &frames.at(frame);
-};
-
-void Sprite::play(){
-    playing = true;
-};
-
-void Sprite::stop(){
+!!!173314.cpp!!!	stop() : void
     playing = false;
     frame = 0;
-};
-
-void Sprite::setVelocidad(int x){ velocidadAnimacion = x;};
-
-void Sprite::dibujar(int X, int Y){
+!!!173442.cpp!!!	play() : void
+    playing = true;
+!!!173570.cpp!!!	agregarFrame(in x : int, in y : int, in w : int, in h : int) : void
+    SDL_Rect rect;
+    rect.x = x;
+    rect.y = y;
+    rect.w = w;
+    rect.h = h;
+    frames.push_back(rect);
+!!!173698.cpp!!!	agregarFrame(in x : int, in y : int, in w : int, in h : int, in dir : int) : void
+    SDL_Rect rect;
+    rect.x = x;
+    rect.y = y;
+    rect.w = w;
+    rect.h = h;
+    frames.push_back(rect);
+!!!173826.cpp!!!	getFrame() : SDL_Rect
+    return &frames.at(frame);
+!!!173954.cpp!!!	getFrameDir() : SDL_Rect
+    return &frames.at(frame);
+!!!174082.cpp!!!	setVelocidad(in x : int) : void
+ velocidadAnimacion = x;
+!!!174210.cpp!!!	dibujar(in X : int, in Y : int) : void
 	RenderComponent::getInstance(SDLManager::getInstance().getRender()).renderizar(X,Y,TILE_W,TILE_H,getFrame(),&Camara::getInstance());
-};
-
-void Sprite::dibujarFixed(int X, int Y){
+!!!174338.cpp!!!	dibujarFixed(in X : int, in Y : int) : void
 RenderComponent::getInstance(SDLManager::getInstance().getRender()).renderizarFixed(X,Y,TILE_W,TILE_H,getFrame(),false);
-};

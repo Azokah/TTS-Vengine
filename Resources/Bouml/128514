@@ -1,0 +1,497 @@
+format 214
+"TTS-Vengine" // TTS-Vengine
+  revision 1
+  modified_by 2 "azokasion"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "/home/james/Documentos/Programacion/TTS-Vengine/"
+  cpp_src_dir "/home/james/Documentos/Programacion/TTS-Vengine/"
+  classview 128642 "TTS-Vengine"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 132738 "game_estado"
+      visibility package stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 141570 "INICIANDO"
+	public type class_ref 132738 // game_estado
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 141698 "CORRIENDO"
+	public type class_ref 132738 // game_estado
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 141826 "TERMINADO"
+	public type class_ref 132738 // game_estado
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 132866 "Game"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 133890 // <generalisation>
+	relation 133890 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 133890 // <generalisation>
+	  b parent class_ref 132994 // ImouseInput
+      end
+
+      operation 161154 "getInstance"
+	class_operation preserve_cpp_body_indent public return_type class_ref 132866 // Game
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} & ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} & ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "singleton"
+      end
+
+      operation 161282 "~Game"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 161410 "run"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 161538 "Game"
+	preserve_cpp_body_indent private explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 134018 // estado (<directional composition>)
+	relation 134018 *-->
+	  a role_name "estado" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 134018 // estado (<directional composition>)
+	  b parent class_ref 132738 // game_estado
+      end
+
+      operation 161666 "update"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 161794 "input"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 2
+	  param in name "tecla" explicit_type "int"
+	  param in name "estadoTecla" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 161922 "inputMouse"
+	preserve_cpp_body_indent cpp_virtual private explicit_return_type "void"
+	nparams 3
+	  param in name "tecla" explicit_type "int"
+	  param in name "X" explicit_type "int"
+	  param in name "Y" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 162050 "dibujar"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 162178 "dibujarHUD"
+	private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 162306 "dibujarTop"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 162434 "bindearInput"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 162562 "selectEntidades"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 2
+	  param in name "X" explicit_type "int"
+	  param in name "Y" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 162690 "setUP"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 134146 // sdl (<unidirectional association>)
+	relation 134146 --->
+	  a role_name "sdl" private
+	    comment "Engine
+"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 134146 // sdl (<unidirectional association>)
+	  b parent class_ref 133122 // SDLManager
+      end
+
+      classrelation 134274 // in (<unidirectional association>)
+	relation 134274 --->
+	  a role_name "in" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 134274 // in (<unidirectional association>)
+	  b parent class_ref 133250 // InputManager
+      end
+
+      classrelation 134402 // camara (<unidirectional association>)
+	relation 134402 --->
+	  a role_name "camara" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 134402 // camara (<unidirectional association>)
+	  b parent class_ref 133378 // Camara
+      end
+
+      classrelation 134530 // renderComp (<unidirectional association>)
+	relation 134530 --->
+	  a role_name "renderComp" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 134530 // renderComp (<unidirectional association>)
+	  b parent class_ref 133506 // RenderComponent
+      end
+
+      classrelation 134658 // colision (<unidirectional association>)
+	relation 134658 --->
+	  a role_name "colision" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 134658 // colision (<unidirectional association>)
+	  b parent class_ref 133634 // Colision
+      end
+
+      classrelation 134786 // musica (<unidirectional association>)
+	relation 134786 --->
+	  a role_name "musica" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 134786 // musica (<unidirectional association>)
+	  b parent class_ref 133762 // Musica
+      end
+
+      classrelation 134914 // timer (<unidirectional association>)
+	relation 134914 --->
+	  a role_name "timer" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 134914 // timer (<unidirectional association>)
+	  b parent class_ref 133890 // Timer
+      end
+
+      classrelation 135042 // gui (<unidirectional association>)
+	relation 135042 --->
+	  a role_name "gui" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 135042 // gui (<unidirectional association>)
+	  b parent class_ref 134018 // Gui
+      end
+
+      classrelation 135170 // turnManager (<unidirectional association>)
+	relation 135170 --->
+	  a role_name "turnManager" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 135170 // turnManager (<unidirectional association>)
+	  b parent class_ref 134146 // TurnManager
+      end
+
+      classrelation 135298 // selectionManager (<unidirectional association>)
+	relation 135298 --->
+	  a role_name "selectionManager" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 135298 // selectionManager (<unidirectional association>)
+	  b parent class_ref 134274 // SelectionManager
+      end
+
+      classrelation 135426 // jugadores (<unidirectional association>)
+	relation 135426 --->
+	  stereotype "std::vector"
+	  a role_name "jugadores" private
+	    comment "Game
+"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};
+"
+	    classrelation_ref 135426 // jugadores (<unidirectional association>)
+	  b parent class_ref 134402 // Jugador
+      end
+
+      classrelation 135554 // mapa (<unidirectional association>)
+	relation 135554 --->
+	  a role_name "mapa" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 135554 // mapa (<unidirectional association>)
+	  b parent class_ref 134530 // Mapa
+      end
+    end
+  end
+
+  deploymentview 128514 "TTS-Vengine"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 132354 "Game"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 132738 // game_estado
+	class_ref 132866 // Game
+      end
+    end
+
+    artifact 136578 "main"
+      stereotype "source"
+      cpp_src "int main(int argc, char * argv[]){
+
+    std::cout<<\"Iniciando V-Engine...\"<<std::endl;
+    Game * game = &game->getInstance();
+    game->run();
+
+    return 0;
+}
+"
+      associated_elems
+      end
+    end
+  end
+
+  package_ref 128642 // Engine
+
+  package_ref 128770 // Game
+
+  classview 129154 "classview"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 128130 "diagrama"
+      classdiagramsettings hide_attributes no hide_operations no member_max_width 0 end
+      size A4
+    end
+  end
+end

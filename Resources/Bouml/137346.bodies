@@ -1,0 +1,5 @@
+class Inamovible
+!!!194306.cpp!!!	getX() : int
+return x;
+!!!194434.cpp!!!	getY() : int
+return y;

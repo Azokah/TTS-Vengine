@@ -13,6 +13,7 @@ Game::Game()
     //Inicializar elementos engine
     //Singletons
     sdl = &sdl->getInstance();
+    timer = &timer->getInstance();
     in = &in->getInstance();
     camara = &camara->getInstance();
     renderComp = &renderComp->getInstance(sdl->getRender());
@@ -20,11 +21,11 @@ Game::Game()
     selectionManager = &selectionManager->getInstance();
     gui = &gui->getInstance();
 
+
+
     colision = new Colision();
     musica = new Musica();
     musica->tocar();
-    timer = new Timer();
-    timer->start();
     //Inicializar elementos game
     
     mapa = new Mapa();

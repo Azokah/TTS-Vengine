@@ -1,0 +1,14 @@
+class Colision
+!!!165122.cpp!!!	detectar(in x1 : int, in y1 : int, in w1 : int, in h1 : int, in x2 : int, in y2 : int, in w2 : int, in h2 : int) : bool
+    //COLISION AABB
+    bool retorno = false;
+    if((x1 >= x2 && x1 <= x2+w2) || (x1+w1 >= x2 && x1+w1 <= x2+w2)){
+        if((y1 >= y2 && y1 <= y2+h2) || (y1+h1 >= y2 && y1+h1 <= y2+h2)){
+            retorno = true;
+        };
+    }
+    return retorno;
+!!!165250.cpp!!!	detectar(inout rect1 : SDL_Rect, inout rect2 : SDL_Rect) : bool
+    return detectar(
+        rect1->x,rect1->y,rect1->w,rect1->h,
+        rect2->x,rect2->y,rect2->w,rect2->h);

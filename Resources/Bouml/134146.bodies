@@ -1,0 +1,16 @@
+class TurnManager
+!!!177282.cpp!!!	getInstance() : TurnManager
+	static TurnManager instancia;
+	return instancia;
+!!!177538.cpp!!!	start() : void
+	jugadorActual = jugadores.at(currentPlayer);
+!!!177666.cpp!!!	pasarTurno() : void
+
+	currentPlayer += 1;
+
+	if(currentPlayer >= jugadores.size()){
+		currentPlayer = 0;
+	}
+	start();
+!!!177794.cpp!!!	TurnManager()
+	currentPlayer = 0;

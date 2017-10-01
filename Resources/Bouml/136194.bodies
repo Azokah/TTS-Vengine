@@ -1,0 +1,28 @@
+class Castillo
+!!!179202.cpp!!!	Castillo(in NAME : std::string, in DESC : std::string, in HP : int, in DEFENSE : int, in SIZE : int, in X : int, in Y : int)
+    setName(NAME);
+    setDesc(DESC);
+    setHP(HP);
+    setDef(DEFENSE);
+    setSize(SIZE);
+    setX(X);
+    setY(Y);
+    setOwner(new Jugador(SIN_DUENO,0));
+
+    sprite = new Sprite();
+    sprite->agregarFrame(TILE_W*9,TILE_H*2,TILE_W,TILE_H);
+
+    
+!!!179458.cpp!!!	update() : void
+
+!!!179586.cpp!!!	onClick(inout jugador : Jugador) : void
+    int opc;
+    std::cout<<"Castillo "<<getName()<<"."<<std::endl;
+    if(jugador->getName().compare(Estructura::getOwner()->getName()) == 0){
+	    std::cout<<"Acciones: "<<std::endl;
+	    std::cout<<"1. Reclutar."<<std::endl;
+	    do{
+		std::cin>>opc;
+	    }while(opc <= 0 && opc >= 2);
+    };
+    

@@ -1,0 +1,33 @@
+class Unidad
+!!!190466.cpp!!!	setName(in NAME : std::string) : void
+name=NAME;
+!!!190594.cpp!!!	setDescription(in desc : std::string) : void
+description=desc;
+!!!190722.cpp!!!	setSpeed(in SPEED : float) : void
+speed=SPEED;
+!!!190850.cpp!!!	setHP(in HP : int) : void
+hp=HP;
+!!!190978.cpp!!!	setDamage(in DAMAGE : int) : void
+damage=DAMAGE;
+!!!191106.cpp!!!	setDefense(in DEFENSE : int) : void
+defense=DEFENSE;
+!!!191234.cpp!!!	setRange(in RANGE : int) : void
+range=RANGE;
+!!!191362.cpp!!!	setOwner(inout OWNER : Jugador) : void
+	owner = OWNER;
+!!!191490.cpp!!!	getOwner() : Jugador
+	return owner;
+!!!191618.cpp!!!	getName() : std::string
+return name;
+!!!191746.cpp!!!	getDescription() : std::string
+return description;
+!!!191874.cpp!!!	getSpeed() : float
+return speed;
+!!!192002.cpp!!!	getHP() : int
+return hp;
+!!!192130.cpp!!!	getDamage() : int
+return damage;
+!!!192258.cpp!!!	getDefense() : int
+return defense;
+!!!192386.cpp!!!	getRange() : int
+return range;

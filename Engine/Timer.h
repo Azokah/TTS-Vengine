@@ -28,6 +28,7 @@ private:
 class Timer
 {
     private:
+	    Timer();
     //The clock time when the timer started
     int startTicks;
 
@@ -41,7 +42,8 @@ class Timer
     bool started;
     public:
     //Initializes variables
-    Timer();
+    static Timer& getInstance();
+    ~Timer();
     
     //The various clock actions
     void start();

@@ -1,0 +1,43 @@
+class Texto
+!!!175106.cpp!!!	Texto(in  : void)
+
+
+	_font1 = NULL;
+	_mensaje = NULL;
+	colorTexto.r = 0;
+	colorTexto.g = 0;
+	colorTexto.b = 0;
+	_a = 255;
+!!!175234.cpp!!!	~Texto(in  : void)
+
+	TTF_CloseFont(_font1);
+	TTF_Quit();
+!!!175362.cpp!!!	ponerTexto(in texto : std::string, in x : int, in y : int, in r : int, in g : int, in b : int, inout render : SDL_Renderer) : void
+
+
+
+	const char * Texto = texto.c_str();
+	colorTexto.r = r;
+	colorTexto.g = g;
+	colorTexto.b = b;
+	_rectTexto.x = x;
+	_rectTexto.y = y;
+	_mensaje = TTF_RenderText_Solid(_font1, Texto, colorTexto);
+	_rectTexto.w = _mensaje->w;
+	_rectTexto.h = _mensaje->h;
+	_textura = SDL_CreateTextureFromSurface(render,_mensaje);
+	SDL_RenderCopy(render,_textura,NULL,&_rectTexto);
+	SDL_FreeSurface(_mensaje);
+	SDL_DestroyTexture(_textura);
+!!!175490.cpp!!!	init(in x : int) : void
+
+	_tam = x;
+	TTF_Init();
+	_font1 = TTF_OpenFont(FUENTE,_tam);
+	if(_font1 == NULL)
+	{
+		getError("No se pudo cargar la fuente 1");
+	}
+!!!175618.cpp!!!	setAlpha(in x : int) : void
+
+	_a = x;

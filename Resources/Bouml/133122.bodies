@@ -1,0 +1,57 @@
+class SDLManager
+!!!171138.cpp!!!	getInstance() : SDLManager
+	static  SDLManager instancia;
+	return instancia;
+!!!171394.cpp!!!	limpiarRender() : void
+ SDL_RenderClear(render);
+!!!171522.cpp!!!	renderizar() : void
+ //Renderizo y aumento el conteo de FPS.
+    SDL_RenderPresent(render);
+    FPS++;
+!!!171650.cpp!!!	imprimirTexto(in mensaje : std::string, in x : int, in y : int, in r : int, in g : int, in b : int) : void
+
+    texto->ponerTexto(mensaje, x, y, r, g, b, render);
+!!!171778.cpp!!!	getRender() : SDL_Renderer
+ return render;
+!!!171906.cpp!!!	drawFPS() : void
+	if(Timer::getInstance().get_ticks() >= proximoTick) {
+		proximoTick = Timer::getInstance().get_ticks() + 1000;
+		FPSMAX = FPS;
+		FPS = 0;
+	}
+	char txt[25];
+	sprintf(txt,"FPS: %.0f",FPSMAX);
+	imprimirTexto(txt,25,50,255,0,125);
+!!!172034.cpp!!!	takeScreenshot() : void
+
+    SDL_Surface *sshot = SDL_CreateRGBSurface(0, PANTALLA_AN, PANTALLA_AL, 32, 0x00ff0000, 0x0000ff00, 0x000000ff, 0xff000000);
+    SDL_RenderReadPixels(render, NULL, SDL_PIXELFORMAT_ARGB8888, sshot->pixels, sshot->pitch);
+    SDL_SaveBMP(sshot, "screenshot.bmp");
+    std::cout<<"Screenshot taken!"<<std::endl;
+    SDL_FreeSurface(sshot);
+
+!!!172162.cpp!!!	SDLManager()
+    if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
+        getError("No se pudo inicializar SDL.");
+    ventana = SDL_CreateWindow(TITULO, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, PANTALLA_AN, PANTALLA_AL, SDL_WINDOW_SHOWN);//SDL_WINDOW_FULLSCREEN
+    render = SDL_CreateRenderer(ventana, -1, GAME_OPTIONS);
+
+    //tileset = cargarTextura(render, ASSETS_PATH);
+
+    
+    proximoTick = Timer::getInstance().get_ticks() + 1000;
+
+    texto = new Texto();
+    texto->init(TEXTO_SIZE);
+    texto->setAlpha(TEXTO_ALPHA);
+
+    FPS = 0;
+!!!172290.cpp!!!	cargarTextura(inout renderer : SDL_Renderer, in path : std::string) : SDL_Texture
+    SDL_Texture * textura;
+    textura = IMG_LoadTexture(renderer, path.c_str());
+    if (textura == NULL)
+    {
+        getError("No se pudo cargar la textura: " + path);
+        return NULL;
+    }
+    return textura;

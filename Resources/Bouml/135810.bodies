@@ -1,0 +1,9 @@
+class Arqueros
+!!!178562.cpp!!!	Arqueros()
+    setName("Arqueros");
+    setDescription("Unidad estandar de combate a distancia.");
+    setSpeed(1);
+    setHP(75);
+    setDamage(3);
+    setDefense(2);
+    setRange(3);

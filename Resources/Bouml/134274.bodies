@@ -1,20 +1,12 @@
-#include "SelectionManager.h"
-
-
-SelectionManager& SelectionManager::getInstance(){
+class SelectionManager
+!!!172418.cpp!!!	getInstance() : SelectionManager
 	static SelectionManager instance;
 	return instance;
-};
+!!!172546.cpp!!!	~SelectionManager()
 
-SelectionManager::~SelectionManager(){
-
-};
-
-SelectionManager::SelectionManager(){};
-void SelectionManager::select(IEntidad * entidad){
+!!!172674.cpp!!!	select(inout entidad : IEntidad) : void
 	seleccion = entidad;
 	seleccion->onClick(TurnManager::getInstance().jugadorActual);
 	Gui::getInstance().componentes.push_back(new GuiRect(seleccion->getX(),
 				seleccion->getY(),
 				200,200,0,0,0,0));
-};
