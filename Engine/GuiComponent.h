@@ -62,4 +62,3 @@ class GuiTexto : public GuiComponent {
 
 		void (* accion)();
 };
-

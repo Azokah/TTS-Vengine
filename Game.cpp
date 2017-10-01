@@ -17,7 +17,8 @@ Game::Game()
     camara = &camara->getInstance();
     renderComp = &renderComp->getInstance(sdl->getRender());
     turnManager = &turnManager->getInstance();
-    
+    selectionManager = &selectionManager->getInstance();
+
     colision = new Colision();
     musica = new Musica();
     musica->tocar();
@@ -105,7 +106,7 @@ void Game::dibujarTop(){
 	for(int i = 0; i < gui->componentes.size(); i++){
 		gui->componentes.at(i)->dibujar();
       	};
-	SDLManager::getInstance().imprimirTexto(turnManager->jugadorActual->getName(),PANTALLA_AN-CURRENT_TURN_PLAYER_OFFSET,CURRENT_TURN_PLAYER_OFFSET,turnManager->jugadorActual->getR(),
+	SDLManager::getInstance().imprimirTexto(turnManager->jugadorActual->getName(),PANTALLA_AN-(CURRENT_TURN_PLAYER_OFFSET*2),CURRENT_TURN_PLAYER_OFFSET,turnManager->jugadorActual->getR(),
 			turnManager->jugadorActual->getG(),
 			turnManager->jugadorActual->getB());
 }
@@ -146,7 +147,7 @@ void Game::selectEntidades(int X,int Y){
     X=X/TILE_W;
     Y=Y/TILE_W;
     for(int i = 0; i < mapa->estructuras.size(); i++){
-        if(mapa->estructuras.at(i)->inBounds(X,Y)) mapa->estructuras.at(i)->onClick(turnManager->jugadorActual);
+        if(mapa->estructuras.at(i)->inBounds(X,Y)) selectionManager->select(mapa->estructuras.at(i));//->onClick(turnManager->jugadorActual);
     }
 };
 

@@ -17,6 +17,7 @@
 #include "Engine/Timer.h"
 #include "Engine/Gui.h"
 #include "Engine/TurnManager.h"
+#include "Engine/SelectionManager.h"
 #include "Game/Mapa.h"
 #include "Game/Ejercito.h"
 #include "Game/Infanteria.h"
@@ -65,7 +66,7 @@ class Game : public ImouseInput{
         Timer * timer;
 	Gui * gui;	
 	TurnManager * turnManager;
-
+	SelectionManager * selectionManager;
 
         //Game
         std::vector<Jugador *> jugadores;
