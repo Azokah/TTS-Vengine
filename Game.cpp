@@ -18,13 +18,13 @@ Game::Game()
     renderComp = &renderComp->getInstance(sdl->getRender());
     turnManager = &turnManager->getInstance();
     selectionManager = &selectionManager->getInstance();
+    gui = &gui->getInstance();
 
     colision = new Colision();
     musica = new Musica();
     musica->tocar();
     timer = new Timer();
     timer->start();
-    gui = new Gui();
     //Inicializar elementos game
     
     mapa = new Mapa();
@@ -102,13 +102,7 @@ void Game::dibujar(){
 };
 void Game::dibujarTop(){
 	sdl->drawFPS();
-	
-	for(int i = 0; i < gui->componentes.size(); i++){
-		gui->componentes.at(i)->dibujar();
-      	};
-	SDLManager::getInstance().imprimirTexto(turnManager->jugadorActual->getName(),PANTALLA_AN-(CURRENT_TURN_PLAYER_OFFSET*2),CURRENT_TURN_PLAYER_OFFSET,turnManager->jugadorActual->getR(),
-			turnManager->jugadorActual->getG(),
-			turnManager->jugadorActual->getB());
+	gui->dibujar();	
 }
 
 void Game::input(int tecla, bool estadoTecla){

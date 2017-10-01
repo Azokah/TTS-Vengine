@@ -24,6 +24,9 @@ class Jugador {
 	Uint8 getR();
 	Uint8 getG();
 	Uint8 getB();
+
+	void setGold(int);
+	int getGold();
     private:
         std::string name;
         int gold;

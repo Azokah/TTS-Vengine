@@ -24,3 +24,7 @@ void Jugador::setNumero(int x){
 	numero = x;
 };
 int Jugador::getNumero(){ return numero;};
+
+
+int Jugador::getGold(){ return gold;};
+void Jugador::setGold(int x){ gold += x;};

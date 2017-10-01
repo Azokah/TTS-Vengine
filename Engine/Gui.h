@@ -11,12 +11,14 @@
 
 class Gui : ImouseInput{
 	public:
-		Gui();
+		static Gui& getInstance();
 		~Gui();
 		
-	virtual void inputMouse(int tecla, int X, int Y);
-
+		virtual void inputMouse(int tecla, int X, int Y);
+	
 		std::vector<GuiComponent *> componentes;
+		void dibujar();
 	private:
+		Gui();
 
 };

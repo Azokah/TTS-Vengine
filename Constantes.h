@@ -1,4 +1,8 @@
 #pragma once
+//TODO: Perdido
+//		GuiRect tiene componentes de texto(botones).
+//		Crear ventanas de GUI, para interaccion.
+
 //Notas:
 //Arreglar el input, implementando un patron COMMANDER.
 //
@@ -77,7 +81,7 @@
 
 //GUI
 #define CURRENT_TURN_PLAYER_OFFSET 50
-
+#define CURRENT_TURN_PLAYER_GOLD 25
 
 //Juego
 #define SIN_DUENO "Sin Dueno"
