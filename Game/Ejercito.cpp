@@ -1,7 +1,7 @@
 #include "Ejercito.h"
 Ejercito::Ejercito(Unidad * unidad){
     sprite = new Sprite();
-    sprite->agregarFrame(5*TILE_W,0*TILE_H,TILE_W,TILE_H);
+    sprite->agregarFrame(0,4*TILE_H,TILE_W,TILE_H);
     x = 0;
     y = 0;
     addUnidad(unidad);
@@ -57,7 +57,7 @@ Jugador* Ejercito::getOwner(){
 	return owner;
 };
 
-void Ejercito::onClick(){
+void Ejercito::onClick(Jugador*){
     int opc;
     std::cout<<"Acciones: "<<std::endl;
     std::cout<<"1. Reclutar."<<std::endl;
@@ -68,6 +68,7 @@ void Ejercito::onClick(){
 };
 
 void Ejercito::dibujar(){
+	RenderComponent::getInstance(SDLManager::getInstance().getRender()).setColorMod(0,0,0);
 	sprite->dibujar(Ejercito::getX()*TILE_W,Ejercito::getY()*TILE_H);
 }
 

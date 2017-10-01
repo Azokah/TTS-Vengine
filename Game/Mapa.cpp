@@ -3,7 +3,7 @@
 
 Mapa::Mapa(){
     sprite = new Sprite();
-    sprite->agregarFrame(32,0,32,32);
+    sprite->agregarFrame(0,3*TILE_W,TILE_W,TILE_H);
     for(int i = 0; i < MAPA_H; i++)
         for(int j = 0; j < MAPA_W; j++)
             mapa[i][j] = 0;
@@ -16,15 +16,12 @@ Mapa::~Mapa(){};
 
 
 void Mapa::dibujar(){
+	RenderComponent::getInstance(SDLManager::getInstance().getRender()).setColorMod(0,255,0);
+
 	for (int i = 0; i < MAPA_H; i++){
-		for (int j = 0; j < MAPA_W; j++){
-           RenderComponent::getInstance(SDLManager::getInstance().getRender()).renderizar(j * TILE_W,
-			    i * TILE_H,
-			    TILE_W,
-			    TILE_H,
-			    sprite->getFrame(),
-			    &Camara::getInstance());
-        } 
-    }
+		for (int j = 0; j < MAPA_W; j++){ 
+		       sprite->dibujar(j*TILE_W,i*TILE_H);
+		}	
+    	}
 }
 int Mapa::getMapa(int x, int y){return mapa[x][y];};

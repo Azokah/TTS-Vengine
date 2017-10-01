@@ -49,7 +49,6 @@ class Game : public ImouseInput{
         void bindearInput();
         void selectEntidades(int,int);
 	
-	void manageTurn(int*,Jugador *);
         void setUP();
 
 
@@ -66,5 +65,6 @@ class Game : public ImouseInput{
         //Game
         std::vector<Jugador *> jugadores;
         Mapa * mapa;
-        
+ 	
+ 	int jugadorActual;	
 };

@@ -53,7 +53,7 @@ void Game::setUP(){
         std::cout<<"Jugador "<<jugadores.at(j)->getName()<<" escoge capital: "<<std::endl;
         for(int i = 0; i < mapa->estructuras.size();i++)
         {
-            if(mapa->estructuras.at(i)->getOwner() == NULL){
+            if(mapa->estructuras.at(i)->getOwner()->getName().compare(SIN_DUENO) == 0){
                 std::cout<<i<<". "<<mapa->estructuras.at(i)->getName()<<std::endl;
             }
         }
@@ -63,18 +63,18 @@ void Game::setUP(){
         mapa->estructuras.at(opc)->setOwner(jugadores.at(j));
     }
     jugadores.at(0)->estado = new JugadorJugando();
+    jugadorActual =0;
 }
 
 void Game::run()
 {
     std::cout << "El juego ha comenzado..." << std::endl;
-    int turnoPjActual = 0;
+    
     while (estado == CORRIENDO)
     {
         sdl->limpiarRender();
         update();
 	dibujar();
-	//manageTurn(&turnoPjActual,jugadores.at(turnoPjActual));
         sdl->renderizar();
     }
 };
@@ -89,7 +89,8 @@ void Game::dibujar(){
     
 	//Estructuras
 	for(int o = 0; o < mapa->estructuras.size(); o++){
-        	mapa->estructuras.at(o)->dibujar();
+        	RenderComponent::getInstance(SDLManager::getInstance().getRender()).setColorMod(255,0,0);
+		mapa->estructuras.at(o)->dibujar();
 	}
 
     dibujarTop();
@@ -98,18 +99,12 @@ void Game::dibujar(){
 };
 void Game::dibujarTop(){
 	sdl->drawFPS();
- 
-	/*
-	 * DEPRECATED
-	for(int j = 0; j< jugadores.size(); j++)
-		if(jugadores.at(j)->estado == JUGANDO)
-   			sdl->imprimirTexto(jugadores.at(j)->getName(),
-					PANTALLA_AN-CURRENT_TURN_PLAYER_OFFSET,
-					CURRENT_TURN_PLAYER_OFFSET,255,0,0);*/
-
+	
 	for(int i = 0; i < gui->componentes.size(); i++){
 		gui->componentes.at(i)->dibujar();
       	};
+	SDLManager::getInstance().imprimirTexto(jugadores.at(jugadorActual)->getName(),PANTALLA_AN-CURRENT_TURN_PLAYER_OFFSET,CURRENT_TURN_PLAYER_OFFSET,
+			255,0,0);
 }
 
 void Game::input(int tecla, bool estadoTecla){
@@ -148,7 +143,7 @@ void Game::selectEntidades(int X,int Y){
     X=X/TILE_W;
     Y=Y/TILE_W;
     for(int i = 0; i < mapa->estructuras.size(); i++){
-        if(mapa->estructuras.at(i)->inBounds(X,Y)) mapa->estructuras.at(i)->onClick();
+        if(mapa->estructuras.at(i)->inBounds(X,Y)) mapa->estructuras.at(i)->onClick(jugadores.at(jugadorActual));
     }
 };
 
@@ -161,18 +156,3 @@ void Game::bindearInput(){
     in->checkMouse.connect(boost::bind(&Camara::checkMouse, camara,_1, _2));
 };
 
-/*
- *
- * DEPRECTAED
-void Game::manageTurn(int* turno, Jugador * pj){
-	if(pj->estado == JugadorJugando()){
-		//Turn code here
-
-
-
-	}else {
-		(*turno)++;
-		pj->estado = new JugadorEsperando();
-		jugadores.at((*turno))->estado = new JugadorJugando();
-	}
-};*/

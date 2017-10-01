@@ -9,10 +9,10 @@ Castillo::Castillo(std::string NAME,std::string DESC,int HP,int DEFENSE,int SIZE
     setSize(SIZE);
     setX(X);
     setY(Y);
-    setOwner(NULL);
+    setOwner(new Jugador(SIN_DUENO,0));
 
     sprite = new Sprite();
-    sprite->agregarFrame(0,TILE_H,TILE_W*2,TILE_H*2);
+    sprite->agregarFrame(TILE_W*9,TILE_H*2,TILE_W,TILE_H);
 
     
 };
@@ -23,13 +23,15 @@ void Castillo::update(){
 
 };
 
-void Castillo::onClick(){
+void Castillo::onClick(Jugador * jugador){
     int opc;
     std::cout<<"Castillo "<<getName()<<"."<<std::endl;
-    std::cout<<"Acciones: "<<std::endl;
-    std::cout<<"1. Reclutar."<<std::endl;
-    do{
-        std::cin>>opc;
-    }while(opc <= 0 && opc >= 2);
+    if(jugador->getName().compare(Estructura::getOwner()->getName()) == 0){
+	    std::cout<<"Acciones: "<<std::endl;
+	    std::cout<<"1. Reclutar."<<std::endl;
+	    do{
+		std::cin>>opc;
+	    }while(opc <= 0 && opc >= 2);
+    };
     
 };

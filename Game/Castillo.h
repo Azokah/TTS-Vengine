@@ -12,5 +12,5 @@ class Castillo : public Estructura {
         ~Castillo();
 
         virtual void update();
-        virtual void onClick();
+        virtual void onClick(Jugador *);
 };

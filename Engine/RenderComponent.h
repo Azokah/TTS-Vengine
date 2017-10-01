@@ -15,6 +15,9 @@ class RenderComponent {
         void renderizarViewport(int,int,int,int,SDL_Rect*,SDL_Rect*);
 
         void setClip(SDL_Rect *);
+
+
+	void setColorMod(Uint8,Uint8,Uint8);
     private:
         SDL_Renderer * render;
         RenderComponent(SDL_Renderer *);

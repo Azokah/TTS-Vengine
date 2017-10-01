@@ -6,5 +6,8 @@ class JugadorEsperando : public JugadorState {
 	public:
 		JugadorEsperando(){};
 		~JugadorEsperando(){};
-
+		
+		virtual int esTurno() override {
+			return 0;
+		};
 };

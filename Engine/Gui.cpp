@@ -1,8 +1,12 @@
 #include "Gui.h"
 
+void do_nothing(){};
+void hacer_algo(){
+	std::cout<<"Hago algo"<<std::endl;
+};
 Gui::Gui(){
-	componentes.push_back(new GuiTexto("Turno de: ",PANTALLA_AN-250,50));
-	componentes.push_back(new GuiButton("Pasar Turno", PANTALLA_AN-250,100));
+	componentes.push_back(new GuiTexto("Turno de: ",PANTALLA_AN-250,50,do_nothing));
+	componentes.push_back(new GuiTexto("Pasar Turno", PANTALLA_AN-250,100,hacer_algo));
 };
 Gui::~Gui(){};
 

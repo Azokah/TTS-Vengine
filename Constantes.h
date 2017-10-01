@@ -27,8 +27,8 @@
 //General
 //Constantes de Juego
 #define VERSION 0.3.3
-#define TILE_W 32
-#define TILE_H 32
+#define TILE_W 16
+#define TILE_H 16
 
 //SDLWrapper
 #define TITULO "TTS-Vengine"
@@ -60,7 +60,7 @@
 
 
 //SPRITE
-#define ASSETS_PATH "Assets/tileset.png"
+#define ASSETS_PATH "Assets/MiTileset.png"
 #define MAPA_SPRITE_W TILE_W
 #define MAPA_SPRITE_H TILE_H
 #define DIRECCIONES 4
@@ -77,3 +77,7 @@
 
 //GUI
 #define CURRENT_TURN_PLAYER_OFFSET 50
+
+
+//Juego
+#define SIN_DUENO "Sin Dueno"

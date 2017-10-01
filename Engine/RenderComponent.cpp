@@ -53,3 +53,7 @@ void RenderComponent::renderizarViewport(int x, int y,int w, int h,SDL_Rect * re
 void RenderComponent::setClip(SDL_Rect * clip){
     SDL_RenderSetClipRect(render,clip);
 };
+
+void RenderComponent::setColorMod(Uint8 r, Uint8 g, Uint8 b){
+	SDL_SetTextureColorMod(sprSh->getSpriteSheet(),r,g,b);
+};

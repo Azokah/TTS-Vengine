@@ -30,7 +30,7 @@ class Ejercito : public IEntidad {
 	virtual bool inBounds(int,int);
 	virtual void setOwner(Jugador *);
 	virtual Jugador* getOwner();
-	virtual void onClick();
+	virtual void onClick(Jugador*);
 	virtual void dibujar();
 
         void addUnidad(Unidad * unidad);
