@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ctime>
+#include <cstdlib>
 #include <SDL2/SDL_image.h>
 #include <boost/bind.hpp>
 #include <boost/shared_ptr.hpp>
@@ -14,6 +16,7 @@
 #include "Engine/Musica.h"
 #include "Engine/Timer.h"
 #include "Engine/Gui.h"
+#include "Engine/TurnManager.h"
 #include "Game/Mapa.h"
 #include "Game/Ejercito.h"
 #include "Game/Infanteria.h"
@@ -61,10 +64,10 @@ class Game : public ImouseInput{
         Musica * musica;
         Timer * timer;
 	Gui * gui;	
+	TurnManager * turnManager;
+
 
         //Game
         std::vector<Jugador *> jugadores;
         Mapa * mapa;
- 	
- 	int jugadorActual;	
 };

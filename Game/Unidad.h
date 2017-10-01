@@ -4,6 +4,8 @@
 #include "Jugador.h"
 #include "../Constantes.h"
 
+//Flyweight
+
 class Unidad {
     public:
         

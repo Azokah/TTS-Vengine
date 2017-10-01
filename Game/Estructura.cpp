@@ -31,6 +31,7 @@ bool Estructura::inBounds(int X, int Y){
 	} else return false;
 };
 void Estructura::dibujar(){
+	RenderComponent::getInstance(SDLManager::getInstance().getRender()).setColorMod(180,180,180);
 	sprite->dibujar(Estructura::getX()*TILE_W,Estructura::getY()*TILE_H);
 };
 

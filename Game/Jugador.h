@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "SDL2/SDL.h"
 #include "../Constantes.h"
 #include "JugadorState.h"
 #include "JugadorJugando.h"
@@ -16,7 +17,16 @@ class Jugador {
         std::string getName();
         
 	JugadorState * estado;
+
+	void setNumero(int);
+	int getNumero();
+	void setColorMod(Uint8,Uint8,Uint8);
+	Uint8 getR();
+	Uint8 getG();
+	Uint8 getB();
     private:
         std::string name;
         int gold;
+	Uint8 r,g,b;
+	int numero;
 };

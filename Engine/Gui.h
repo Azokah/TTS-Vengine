@@ -6,6 +6,7 @@
 #include "../Constantes.h"
 #include "GuiComponent.h"
 #include "ImouseInput.h"
+#include "TurnManager.h"
 
 
 class Gui : ImouseInput{

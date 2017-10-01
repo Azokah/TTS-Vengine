@@ -8,6 +8,7 @@ Game &Game::getInstance()
 
 Game::Game()
 {
+    srand((unsigned)time(NULL));
     estado = INICIANDO;
     //Inicializar elementos engine
     //Singletons
@@ -15,7 +16,7 @@ Game::Game()
     in = &in->getInstance();
     camara = &camara->getInstance();
     renderComp = &renderComp->getInstance(sdl->getRender());
-    
+    turnManager = &turnManager->getInstance();
     
     colision = new Colision();
     musica = new Musica();
@@ -47,6 +48,8 @@ void Game::setUP(){
         std::cout<<"Ingrese el nombre del jugador numero "<<i<<":";
         std::cin>>nombre;
         jugadores.push_back(new Jugador(nombre,100));
+	jugadores.at(i)->setNumero(i);
+	jugadores.at(i)->setColorMod(rand()%256,rand()%256,rand()%256); //MOMENTANEO
     }
 
     for(int j = 0; j < jugadores.size();j++){
@@ -62,8 +65,8 @@ void Game::setUP(){
         }while(opc <= -1 && opc >= mapa->estructuras.size());
         mapa->estructuras.at(opc)->setOwner(jugadores.at(j));
     }
-    jugadores.at(0)->estado = new JugadorJugando();
-    jugadorActual =0;
+    turnManager->jugadores = jugadores;
+    turnManager->start();
 }
 
 void Game::run()
@@ -89,7 +92,6 @@ void Game::dibujar(){
     
 	//Estructuras
 	for(int o = 0; o < mapa->estructuras.size(); o++){
-        	RenderComponent::getInstance(SDLManager::getInstance().getRender()).setColorMod(255,0,0);
 		mapa->estructuras.at(o)->dibujar();
 	}
 
@@ -103,8 +105,9 @@ void Game::dibujarTop(){
 	for(int i = 0; i < gui->componentes.size(); i++){
 		gui->componentes.at(i)->dibujar();
       	};
-	SDLManager::getInstance().imprimirTexto(jugadores.at(jugadorActual)->getName(),PANTALLA_AN-CURRENT_TURN_PLAYER_OFFSET,CURRENT_TURN_PLAYER_OFFSET,
-			255,0,0);
+	SDLManager::getInstance().imprimirTexto(turnManager->jugadorActual->getName(),PANTALLA_AN-CURRENT_TURN_PLAYER_OFFSET,CURRENT_TURN_PLAYER_OFFSET,turnManager->jugadorActual->getR(),
+			turnManager->jugadorActual->getG(),
+			turnManager->jugadorActual->getB());
 }
 
 void Game::input(int tecla, bool estadoTecla){
@@ -143,7 +146,7 @@ void Game::selectEntidades(int X,int Y){
     X=X/TILE_W;
     Y=Y/TILE_W;
     for(int i = 0; i < mapa->estructuras.size(); i++){
-        if(mapa->estructuras.at(i)->inBounds(X,Y)) mapa->estructuras.at(i)->onClick(jugadores.at(jugadorActual));
+        if(mapa->estructuras.at(i)->inBounds(X,Y)) mapa->estructuras.at(i)->onClick(turnManager->jugadorActual);
     }
 };
 
