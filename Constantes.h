@@ -30,12 +30,12 @@
 
 //General
 //Constantes de Juego
-#define VERSION 0.3.3
+#define VERSION 0.1.6
 #define TILE_W 16
 #define TILE_H 16
 
 //SDLWrapper
-#define TITULO "TTS-Vengine"
+#define TITULO "TBSR-Vengine"
 #define PANTALLA_AN 800
 #define PANTALLA_AL 600
 #define GAME_OPTIONS SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC

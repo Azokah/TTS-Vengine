@@ -44,7 +44,6 @@ class Estructura : public IEntidad {
         void setHP(int);
         void setDef(int);
         void setSize(int);
-        
 
         Sprite * sprite;
 
