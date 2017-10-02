@@ -1,1 +1,3 @@
-g++ -w *.cpp Engine/*.cpp Game/*.cpp -o tts.out -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2 && ./tts.out
+g++ -w *.cpp En
+gine/*.cpp Game/*.cpp -o tts.out -std=c++11 -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2 && ./tts.out
+

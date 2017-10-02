@@ -6,10 +6,12 @@
 #include "Camara.h"
 #include "Sprite.h"
 #include "../Constantes.h"
+#include "GuiCommands.h"
 
 /* Clase que contiene la definicion de los componentes del GUI
  * GuiComponent es una clase Abstracta de la cual heredan los componentes
  * */
+
 class GuiComponent {
 
 	public:
@@ -101,4 +103,61 @@ class GuiRect : public GuiComponent {
 
 		SDL_Rect rect;
 		Uint8 r, g, b, a;
+};
+class GuiMenu : public GuiComponent {
+	public:
+		
+		GuiMenu(int X, int Y):GuiComponent("Menu",X,Y){
+			x = X;
+			y = Y;
+			addOpcion("Cerrar",do_cerrar_menu);
+			fondo = new GuiRect(x,y,getWidth(),getHeight(),0,0,0,255);
+		};
+		~GuiMenu(){};
+		virtual bool inBounds(int X, int Y) override {
+			if(fondo->inBounds(X,Y)){
+				for(int i = 0; i < opciones.size();i++){
+					if(opciones.at(i)->inBounds(X,Y)){
+						opciones.at(i)->onClick();
+					}
+				}
+				return true;
+			}else return false;
+		};
+
+		virtual void onClick() override{
+			
+		};
+
+		virtual void dibujar() override{
+			fondo->dibujar();
+			for(int i = 0; i < opciones.size(); i++){
+				opciones.at(i)->dibujar();
+			}
+		};
+
+		void addOpcion(std::string texto,void (*accion)()){
+			
+			GuiTexto * opcion = new GuiTexto(texto, x, y, accion);
+			opciones.insert(opciones.begin(),opcion);
+			//GuiTexto(std::string txt, int X, int Y, void (* action)(void))
+			
+			fondo = new GuiRect(x,y,getWidth(),getHeight(),0,0,0,255);
+		};
+	private:
+		GuiRect * fondo;
+		std::vector<GuiTexto*> opciones;
+		int x, y;
+
+		int getWidth(){
+			int nw = 0, width = opciones.at(0)->getText().size()*TEXTO_SIZE;
+			for(int i = 0; i < opciones.size(); i++){
+				nw = opciones.at(i)->getText().size()*TEXTO_SIZE;
+				if(nw > width) width = nw;
+			}
+			return width;
+		};
+		int getHeight(){
+			return opciones.size()*TEXTO_SIZE;
+		};
 };

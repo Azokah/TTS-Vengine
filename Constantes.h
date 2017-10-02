@@ -1,7 +1,9 @@
 #pragma once
-//TODO: Perdido
-//		GuiRect tiene componentes de texto(botones).
-//		Crear ventanas de GUI, para interaccion.
+//TODO:
+//		Crear GuiComponent menu.
+//		Crear Escenas y scenemanager.
+//		Crear Factory
+
 
 //Notas:
 //Arreglar el input, implementando un patron COMMANDER.

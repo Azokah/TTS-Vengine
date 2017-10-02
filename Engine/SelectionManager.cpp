@@ -14,7 +14,6 @@ SelectionManager::SelectionManager(){};
 void SelectionManager::select(IEntidad * entidad){
 	seleccion = entidad;
 	seleccion->onClick(TurnManager::getInstance().jugadorActual);
-	/*Gui::getInstance().componentes.push_back(new GuiRect(seleccion->getX(),
-				seleccion->getY(),
-				200,200,0,0,0,0));*/
+	Gui::getInstance().componentes.push_back(new GuiMenu(seleccion->getX()*TILE_W,
+				seleccion->getY()*TILE_H));
 };
