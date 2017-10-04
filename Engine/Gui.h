@@ -7,7 +7,6 @@
 #include "GuiComponent.h"
 #include "ImouseInput.h"
 #include "TurnManager.h"
-#include "GuiCommands.h"
 
 class Gui : ImouseInput{
 	public:

@@ -6,7 +6,6 @@
 #include "Camara.h"
 #include "Sprite.h"
 #include "../Constantes.h"
-#include "GuiCommands.h"
 
 /* Clase que contiene la definicion de los componentes del GUI
  * GuiComponent es una clase Abstracta de la cual heredan los componentes
