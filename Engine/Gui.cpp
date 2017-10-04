@@ -1,5 +1,18 @@
 #include "Gui.h"
 
+void do_nothing(){};
+void do_pasar_turno(){
+	TurnManager::getInstance().pasarTurno();
+};
+
+void do_cerrar_menu(){
+	//Gui::getInstance().componentes.push_back(new GuiMenu(seleccion->getX()*TILE_W,
+	//			seleccion->getY()*TILE_H));
+	//GG
+	Gui::getInstance().componentes.erase(Gui::getInstance().componentes.end());
+};
+
+
 Gui& Gui::getInstance(){
 	static Gui instance;
 	return instance;
