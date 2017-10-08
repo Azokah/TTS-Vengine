@@ -35,43 +35,11 @@ void Castillo::onClick(Jugador * jugador){
 	    }while(opc <= 0 && opc >= 2);
 	    switch(opc){
 		case 1:
-			reclutar();
+			//reclutar();
 			break;
 		default:
 			break;
 	    }
     };
     
-};
-
-
-void Castillo::reclutar(){
-	std::cout<<"Reclutando: "<<std::endl;
-	std::cout<<"1. Infante"<<std::endl<<
-		"2. Arquero"<<std::endl<<
-		"3. Caballero"<<std::endl<<
-		"4. Salir"<<std::endl;
-	int opc;
-	do{
-		std::cin>>opc;
-	}while(opc <= 0 && opc >= 5);
-
-	switch(opc){
-		case 1:
-			
-			Estructura::unidadesGuarecidas.push_back(new Infanteria());
-			break;
-		case 2:
-			Estructura::unidadesGuarecidas.push_back(new Arqueros());
-			break;
-		case 3:
-			Estructura::unidadesGuarecidas.push_back(new Caballeria());
-			break;
-		default:
-			Estructura::getOwner()->setGold(10);
-			break;
-
-	};
-	Estructura::getOwner()->setGold(-10);
-
 };

@@ -5,12 +5,6 @@
 #include "../Constantes.h"
 #include "Estructura.h"
 
-//Deberia incluir estos 3?... quizas usar alguna interfaz..
-#include "Infanteria.h"
-#include "Arqueros.h"
-#include "Caballeria.h"
-
-
 class Castillo : public Estructura {
     public:
         Castillo();
@@ -20,5 +14,4 @@ class Castillo : public Estructura {
         virtual void update();
         virtual void onClick(Jugador *);
 
-	void reclutar(); //El castillo puede reclutar?... o el jugador puede reclutar? en un castillo?
-};
+	};

@@ -16,6 +16,7 @@
 #include "Engine/Musica.h"
 #include "Engine/Timer.h"
 #include "Engine/Gui.h"
+#include "Engine/SoldierFactory.h"
 #include "Engine/TurnManager.h"
 #include "Engine/SelectionManager.h"
 #include "Game/Mapa.h"
@@ -64,7 +65,8 @@ class Game : public ImouseInput{
         Colision * colision;
         Musica * musica;
         Timer * timer;
-	Gui * gui;	
+	Gui * gui;
+	SoldierFactory * sFactory;
 	TurnManager * turnManager;
 	SelectionManager * selectionManager;
 

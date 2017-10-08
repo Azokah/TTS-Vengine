@@ -20,7 +20,7 @@ Game::Game()
     turnManager = &turnManager->getInstance();
     selectionManager = &selectionManager->getInstance();
     gui = &gui->getInstance();
-
+    sFactory = &sFactory->getInstance();
 
 
     colision = new Colision();

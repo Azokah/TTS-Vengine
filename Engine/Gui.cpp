@@ -1,26 +1,13 @@
 #include "Gui.h"
 
-void do_nothing(){};
-void do_pasar_turno(){
-	TurnManager::getInstance().pasarTurno();
-};
-
-void do_cerrar_menu(){
-	//Gui::getInstance().componentes.push_back(new GuiMenu(seleccion->getX()*TILE_W,
-	//			seleccion->getY()*TILE_H));
-	//GG
-	Gui::getInstance().componentes.erase(Gui::getInstance().componentes.end());
-};
-
-
 Gui& Gui::getInstance(){
-	static Gui instance;
-	return instance;
+	static Gui * instance = new Gui();
+	return *instance;
 };
 Gui::Gui(){
-	componentes.push_back(new GuiTexto("Turno de: ",PANTALLA_AN-250,50,do_nothing));
-	componentes.push_back(new GuiTexto("Pasar Turno", PANTALLA_AN-250,100,do_pasar_turno));
-	componentes.push_back(new GuiTexto("Oro: ", CURRENT_TURN_PLAYER_GOLD,CURRENT_TURN_PLAYER_GOLD,do_nothing));
+	componentes.push_back(new GuiTexto("Turno de: ",PANTALLA_AN-250,50));
+	componentes.push_back(new GuiTexto("Pasar Turno", PANTALLA_AN-250,100));
+	componentes.push_back(new GuiTexto("Oro: ", CURRENT_TURN_PLAYER_GOLD,CURRENT_TURN_PLAYER_GOLD));
 
 };
 Gui::~Gui(){};
