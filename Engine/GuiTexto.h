@@ -16,4 +16,4 @@ class GuiTexto : public GuiComponent {
 		virtual void dibujar();		
 	private:
 };
-;
+

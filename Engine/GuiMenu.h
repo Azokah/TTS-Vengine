@@ -6,6 +6,7 @@
 #include "GuiBoton.h"
 #include "../Constantes.h"
 
+class GuiBoton;//Why forward declaration?
 class GuiMenu : public GuiComponent {
 	public:
 		
@@ -17,7 +18,7 @@ class GuiMenu : public GuiComponent {
 		void addOpcion(std::string texto,AccionesBoton accion);
 	private:
 		GuiRect * fondo;
-		std::vector<GuiBoton*> opciones;
+		std::vector<GuiBoton *> opciones;
 		int x, y;
 
 		int getWidth();

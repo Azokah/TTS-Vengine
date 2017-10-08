@@ -4,17 +4,10 @@
 #include "GuiComponent.h"
 #include "GuiTexto.h"
 #include "GuiRect.h"
-#include "../Constantes.h"
+#include "Gui.h"
 #include "TurnManager.h"
 #include "SoldierFactory.h"
-
-enum AccionesBoton{
-	BOTON_NADA,
-	BOTON_PASARTURNO,
-	BOTON_CERRAR,
-	BOTON_RECLUTAR
-};
-
+#include "../Constantes.h"
 
 class GuiBoton : public GuiComponent {
 	public:
@@ -36,4 +29,3 @@ class GuiBoton : public GuiComponent {
 		int getWidth();
 		int getHeight();
 };
-;

@@ -8,13 +8,6 @@
 #include "Unidad.h"
 #include "Jugador.h"
 
-enum estado{
-    ATACANDO,
-    DEFENDIENDO,
-    ESPERANDO,
-    CAMINANDO
-};
-
 class Ejercito : public IEntidad {
     public:
         Ejercito(Unidad * unidad);

@@ -6,9 +6,8 @@ Gui& Gui::getInstance(){
 };
 Gui::Gui(){
 	componentes.push_back(new GuiTexto("Turno de: ",PANTALLA_AN-250,50));
-	componentes.push_back(new GuiTexto("Pasar Turno", PANTALLA_AN-250,100));
+	componentes.push_back(new GuiBoton("Pasar Turno", PANTALLA_AN-250,100,BOTON_PASARTURNO));
 	componentes.push_back(new GuiTexto("Oro: ", CURRENT_TURN_PLAYER_GOLD,CURRENT_TURN_PLAYER_GOLD));
-
 };
 Gui::~Gui(){};
 

@@ -28,12 +28,6 @@
 #include "Game/Aldea.h"
 #include "Game/Jugador.h"
 
-enum game_estado{
-        INICIANDO,
-        CORRIENDO,
-        TERMINADO
-};
-
 class Game : public ImouseInput{
     public:
         //singleton

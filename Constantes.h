@@ -87,3 +87,28 @@
 
 //Juego
 #define SIN_DUENO "Sin Dueno"
+
+
+enum AccionesBoton{
+	BOTON_NADA,
+	BOTON_PASARTURNO,
+	BOTON_CERRAR,
+	BOTON_RECLUTAR
+};
+
+
+enum game_estado{
+        INICIANDO,
+        CORRIENDO,
+        TERMINADO
+};
+
+
+enum estado{
+    ATACANDO,
+    DEFENDIENDO,
+    ESPERANDO,
+    CAMINANDO
+};
+
+
