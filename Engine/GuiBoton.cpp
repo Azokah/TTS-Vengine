@@ -14,7 +14,7 @@ void GuiBoton::onClick(){
 			break;
 		case BOTON_CERRAR:
 			//delete this;
-			Gui::getInstance().componentes.erase(Gui::getInstance().componentes.end());
+			Gui::getInstance().componentes.pop_back();
 			break;
 		case BOTON_RECLUTAR:
 			//crear menu de reclutamiento

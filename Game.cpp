@@ -132,7 +132,7 @@ void Game::input(int tecla, bool estadoTecla){
 void Game::inputMouse(int tecla, int X, int Y)
 {
     switch (tecla){
-        case SDL_BUTTON_LEFT:
+        case SDL_BUTTON_RIGHT:
         selectEntidades(X,Y);
         break;
     }

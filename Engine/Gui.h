@@ -22,6 +22,7 @@ class Gui : ImouseInput{
 	
 		std::vector<GuiComponent *> componentes;
 		void dibujar();
+
 	private:
 		Gui();
 

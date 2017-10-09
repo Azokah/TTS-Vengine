@@ -11,7 +11,6 @@ Gui::Gui(){
 };
 Gui::~Gui(){};
 
-
 void Gui::inputMouse(int tecla, int X, int Y)
 {
 	X -= Camara::getInstance().getX();

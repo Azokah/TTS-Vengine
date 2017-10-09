@@ -4,6 +4,7 @@ GuiMenu::GuiMenu(int X, int Y):GuiComponent("Menu",X,Y){
 	x = X;
 	y = Y;
 	addOpcion("Cerrar",BOTON_CERRAR);
+	addOpcion("Reclutar",BOTON_RECLUTAR);
 	fondo = new GuiRect(x,y,getWidth(),getHeight(),0,0,0,255);
 };
 GuiMenu::~GuiMenu(){};
@@ -31,7 +32,7 @@ void GuiMenu::dibujar(){
 
 void GuiMenu::addOpcion(std::string texto,AccionesBoton accion){
 	
-	GuiBoton * opcion = new GuiBoton(texto, x, y, accion);
+	GuiBoton * opcion = new GuiBoton(texto, x, y+(opciones.size()*TEXTO_SIZE), accion);
 	opciones.insert(opciones.begin(),opcion);
 };
 int GuiMenu::getWidth(){
